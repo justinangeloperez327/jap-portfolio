@@ -8,8 +8,10 @@ import type {
 
 import { ArtworkPlaceholder } from "./artwork-placeholder";
 import { AtmosphereLayer } from "./atmosphere-layer";
+import { ForegroundLayer } from "./foreground-layer";
 import { GradientOverlay } from "./gradient-overlay";
 import { ImageLayer } from "./image-layer";
+import { NoiseOverlay } from "./noise-overlay";
 import { ParallaxLayer } from "./parallax-layer";
 
 type CinematicBackgroundProps = {
@@ -20,6 +22,7 @@ type CinematicBackgroundProps = {
   className?: string;
   imageClassName?: string;
   parallaxDepth?: number;
+  noise?: boolean;
 };
 
 export function CinematicBackground({
@@ -30,6 +33,7 @@ export function CinematicBackground({
   className,
   imageClassName,
   parallaxDepth = 1,
+  noise = true,
 }: CinematicBackgroundProps) {
   return (
     <div
@@ -62,7 +66,9 @@ export function CinematicBackground({
         className="layer-atmosphere"
       />
 
-      {children}
+      {noise && <NoiseOverlay className="layer-atmosphere" />}
+
+      {children && <ForegroundLayer>{children}</ForegroundLayer>}
     </div>
   );
 }
