@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import {
+  SkillsArchitecture,
   SkillsHero,
   SkillsIntroduction,
 } from "@/components/sections";
@@ -16,6 +17,7 @@ export default function SkillsPage() {
     <main className="bg-background text-foreground">
       <SkillsHero />
       <SkillsIntroduction />
+      <SkillsArchitecture />
     </main>
   );
 }
