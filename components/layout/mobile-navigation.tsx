@@ -1,6 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,9 +12,22 @@ import { siteNav } from "@/data";
 import { isActiveRoute } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
+const focusableSelector =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export function MobileNavigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  const closeAndReturnFocus = () => {
+    setOpen(false);
+
+    requestAnimationFrame(() => {
+      triggerRef.current?.focus();
+    });
+  };
 
   useEffect(() => {
     if (!open) {
@@ -18,10 +35,54 @@ export function MobileNavigation() {
     }
 
     const previousOverflow = document.body.style.overflow;
+    const dialog = dialogRef.current;
+
+    const getFocusableElements = () =>
+      dialog
+        ? Array.from(
+            dialog.querySelectorAll<HTMLElement>(
+              focusableSelector,
+            ),
+          ).filter(
+            (element) =>
+              !element.hasAttribute("disabled") &&
+              element.getAttribute("aria-hidden") !== "true",
+          )
+        : [];
+
+    requestAnimationFrame(() => {
+      getFocusableElements()[0]?.focus();
+    });
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpen(false);
+        event.preventDefault();
+        closeAndReturnFocus();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = getFocusableElements();
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusableElements[0];
+      const last =
+        focusableElements[focusableElements.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -37,37 +98,29 @@ export function MobileNavigation() {
   return (
     <div className="lg:hidden">
       <button
+        ref={triggerRef}
         type="button"
-        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        aria-label="Open navigation menu"
         aria-expanded={open}
         aria-controls="mobile-navigation"
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => setOpen(true)}
+        tabIndex={open ? -1 : 0}
         className={cn(
           "relative z-[70] grid size-12 place-items-center border border-border bg-background/60",
           "backdrop-blur-md transition-colors hover:bg-surface-raised",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          open && "invisible pointer-events-none",
         )}
       >
-        <span className="sr-only">
-          {open ? "Close menu" : "Open menu"}
-        </span>
+        <span className="sr-only">Open menu</span>
         <span aria-hidden="true" className="relative block h-4 w-5">
-          <span
-            className={cn(
-              "absolute left-0 top-1 h-px w-5 bg-current transition-transform duration-200",
-              open && "translate-y-1 rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "absolute bottom-1 left-0 h-px w-5 bg-current transition-transform duration-200",
-              open && "-translate-y-1 -rotate-45",
-            )}
-          />
+          <span className="absolute left-0 top-1 h-px w-5 bg-current" />
+          <span className="absolute bottom-1 left-0 h-px w-5 bg-current" />
         </span>
       </button>
 
       <div
+        ref={dialogRef}
         id="mobile-navigation"
         role="dialog"
         aria-modal="true"
@@ -80,9 +133,28 @@ export function MobileNavigation() {
         )}
         aria-hidden={!open}
       >
+        <div className="site-container flex min-h-[var(--header-height)] items-center justify-end pt-[env(safe-area-inset-top)]">
+          <button
+            type="button"
+            aria-label="Close navigation menu"
+            tabIndex={open ? 0 : -1}
+            onClick={closeAndReturnFocus}
+            className="grid size-12 place-items-center border border-border bg-background/60 backdrop-blur-md transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="sr-only">Close menu</span>
+            <span
+              aria-hidden="true"
+              className="relative block h-4 w-5"
+            >
+              <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 rotate-45 bg-current" />
+              <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 -rotate-45 bg-current" />
+            </span>
+          </button>
+        </div>
+
         <nav
           aria-label="Mobile navigation"
-          className="site-container flex min-h-svh items-start pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(7.5rem,calc(env(safe-area-inset-top)+6rem))] sm:items-center sm:py-28"
+          className="site-container flex min-h-[calc(100svh-var(--header-height)-env(safe-area-inset-top))] items-start pb-[max(2rem,env(safe-area-inset-bottom))] pt-8 sm:items-center sm:py-16"
         >
           <ul className="w-full">
             {siteNav.map((item, index) => {
