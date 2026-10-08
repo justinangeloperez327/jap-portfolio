@@ -29,6 +29,7 @@ function EditorialSection({
 }) {
   return (
     <section
+      data-scroll-reveal
       aria-labelledby={`${id}-title`}
       className={cn(
         surface === "subtle" && "border-y border-border bg-surface-subtle",
@@ -174,13 +175,17 @@ export function ProjectCaseStudyView({
               </ul>
             </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden border border-border bg-surface-subtle">
+            <div
+              data-scroll-depth="0.4"
+              className="relative aspect-[16/10] overflow-hidden border border-border bg-surface-subtle"
+            >
               <CinematicMedia
                 src={project.image ?? undefined}
                 alt={`${project.title} project artwork`}
                 label={`${project.title} case-study artwork coming later`}
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 position={project.imagePosition}
+                scrollZoom
                 className="absolute inset-0"
                 imageClassName={cn(
                   project.imageMirror && "-scale-x-100",
