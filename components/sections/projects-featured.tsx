@@ -44,10 +44,11 @@ export function ProjectsFeatured() {
                   )}
                 >
                   <CinematicMedia
-                    src={project.imageSrc}
-                    alt={project.imageAlt}
+                    src={project.image ?? undefined}
+                    alt={`${project.title} project artwork`}
                     label={`${project.title} artwork coming later`}
                     sizes="(min-width: 1024px) 50vw, 100vw"
+                    position={project.imagePosition}
                     className="absolute inset-0"
                     imageClassName={cn(
                       project.imageMirror && "-scale-x-100",
@@ -59,7 +60,7 @@ export function ProjectsFeatured() {
                       Project {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/45">
-                      Featured
+                      {project.status}
                     </span>
                   </div>
                 </div>
@@ -73,7 +74,7 @@ export function ProjectsFeatured() {
                   )}
                 >
                   <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
-                    {project.eyebrow}
+                    {project.subtitle}
                   </p>
 
                   <h3 className="mt-4 text-display font-semibold">
