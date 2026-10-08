@@ -107,6 +107,23 @@
   --font-mono:
     "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 
+  --text-hero: clamp(3.5rem, 8vw, 7.5rem);
+  --text-hero--line-height: 0.92;
+  --text-hero--letter-spacing: -0.055em;
+  --text-display: clamp(2.75rem, 5.5vw, 5rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.045em;
+  --text-heading: clamp(1.75rem, 3vw, 2.75rem);
+  --text-heading--line-height: 1.05;
+  --text-heading--letter-spacing: -0.03em;
+  --text-body-lg: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --text-body-lg--line-height: 1.65;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1rem;
+  --text-label--letter-spacing: 0.22em;
+
   --radius-sm: calc(var(--radius) - 0.25rem);
   --radius-md: calc(var(--radius) - 0.125rem);
   --radius-lg: var(--radius);
@@ -162,6 +179,26 @@
 
   .hero-height {
     min-height: var(--hero-min-height);
+  }
+
+  .layer-background {
+    z-index: var(--z-background);
+  }
+
+  .layer-atmosphere {
+    z-index: var(--z-atmosphere);
+  }
+
+  .layer-content {
+    z-index: var(--z-content);
+  }
+
+  .layer-navigation {
+    z-index: var(--z-navigation);
+  }
+
+  .layer-overlay {
+    z-index: var(--z-overlay);
   }
 
   .glass-surface {
