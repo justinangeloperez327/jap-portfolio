@@ -1,17 +1,32 @@
+import { CinematicMedia } from "@/components/media/cinematic-media";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center px-6">
-      <div className="max-w-xl text-center">
-        <p className="mb-3 text-sm uppercase tracking-[0.35em] text-muted-foreground">
-          Portfolio
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-          JAP Portfolio
-        </h1>
-        <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg">
-          Next.js, Tailwind CSS, shadcn/ui, Anime.js, and Kokonut UI are ready.
-        </p>
-      </div>
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
+      <CinematicMedia
+        alt="JAP Portfolio home artwork"
+        label="Home artwork coming later"
+        priority
+        className="absolute inset-0"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
+
+      <section className="relative z-10 flex min-h-screen items-center px-6 py-24 sm:px-10 lg:px-16">
+        <div className="max-w-2xl">
+          <p className="mb-5 text-xs font-medium uppercase tracking-[0.35em] text-white/55">
+            Portfolio
+          </p>
+
+          <h1 className="text-5xl font-semibold tracking-tight sm:text-7xl">
+            Justin Angelo Perez
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg leading-8 text-white/65 sm:text-xl">
+            Building software, frameworks, and digital systems.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
