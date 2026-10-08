@@ -12,4 +12,7 @@ export {
 } from "./experience";
 export { featuredProjects } from "./featured-projects";
 export { portfolioSections, siteNav } from "./site";
-export { skillCategories } from "./skills";
+export {
+  skillArchitecture,
+  skillCategories,
+} from "./skills";
