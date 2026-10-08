@@ -234,7 +234,7 @@ export function AboutContent() {
               key={item}
               className="grid gap-4 border-b border-border py-6 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-8"
             >
-              <span className="font-mono text-xs text-primary">
+              <span aria-hidden="true" className="font-mono text-xs text-primary">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="max-w-3xl text-body-lg text-foreground/85">
