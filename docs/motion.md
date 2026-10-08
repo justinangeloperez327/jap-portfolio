@@ -88,3 +88,49 @@ The transition is intentionally restrained:
 This keeps navigation responsive while still giving the portfolio a consistent sense of continuity.
 
 When `prefers-reduced-motion: reduce` is active, the page is shown immediately at full opacity with no translation.
+
+
+## Scroll motion
+
+Shared scroll behavior is implemented in:
+
+`components/motion/scroll-motion.tsx`
+
+The system is mounted once inside the global page-transition boundary and uses opt-in data attributes.
+
+### Reveal
+
+Elements marked with `data-scroll-reveal`:
+
+- Start 18px lower
+- Fade from transparent to full opacity
+- Animate once when roughly 8% of the element enters the viewport
+- Use a 620ms `out(3)` transition
+- Are unobserved after their first reveal
+
+A MutationObserver registers newly rendered opt-in content, including Projects catalog sections that change after filtering.
+
+### Depth
+
+Elements marked with `data-scroll-depth` receive a very small continuous vertical offset based on viewport position.
+
+The maximum base travel is 14px, multiplied by the element's depth value. This is used for selected artwork containers and oversized background numerals rather than ordinary interface elements.
+
+### Media zoom
+
+`CinematicMedia` can opt into `data-scroll-zoom`.
+
+Media scales by at most 1.5% as it approaches the center of the viewport. This is intentionally too small to read as a dramatic zoom effect; it exists only to reinforce depth.
+
+### Motion boundaries
+
+The shared scroll system does not target:
+
+- The Home hero, which owns its existing pointer and scroll depth behavior
+- The Skills page reveal targets, which are controlled by `SkillsMotion`
+- Navigation or form controls
+- Every text block or list item
+
+This prevents stacked transforms and keeps motion subordinate to content.
+
+When `prefers-reduced-motion: reduce` is active, shared reveal, depth, and zoom effects are skipped entirely.
