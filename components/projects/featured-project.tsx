@@ -82,7 +82,12 @@ export function FeaturedProject({
         </div>
 
         <h3 className="mt-4 text-display font-semibold">
-          {project.title}
+          <Link
+            href={`/projects/${project.slug}`}
+            className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {project.title}
+          </Link>
         </h3>
 
         <p className="mt-5 text-body-lg text-muted-foreground">
@@ -105,7 +110,7 @@ export function FeaturedProject({
 
         {showProjectLink && (
           <Link
-            href="/projects"
+            href={`/projects/${project.slug}`}
             className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Explore {project.title}
