@@ -10,6 +10,7 @@ export {
   engineeringJourney,
   professionalExperienceThemes,
 } from "./experience";
+export { getProjectCaseStudy } from "./project-case-studies";
 export {
   additionalProjects,
   featuredProjects,
