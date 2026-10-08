@@ -7,6 +7,10 @@ export {
 export { artwork } from "./artwork";
 export { brand } from "./brand";
 export {
+  contactFocusAreas,
+  contactResponseNotes,
+} from "./contact";
+export {
   engineeringJourney,
   professionalExperienceThemes,
 } from "./experience";
