@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -21,13 +22,13 @@ export function MobileNavigation() {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
-  const closeAndReturnFocus = () => {
+  const closeAndReturnFocus = useCallback(() => {
     setOpen(false);
 
     requestAnimationFrame(() => {
       triggerRef.current?.focus();
     });
-  };
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -93,7 +94,7 @@ export function MobileNavigation() {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [open]);
+  }, [open, closeAndReturnFocus]);
 
   return (
     <div className="lg:hidden">
