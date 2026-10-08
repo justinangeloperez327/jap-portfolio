@@ -17,7 +17,7 @@ export function AboutHero() {
       artwork={artwork.about}
       priority
       overlay="left"
-      contentClassName="items-end pb-16 pt-28 sm:pb-20 lg:items-center lg:pb-24"
+      contentClassName="items-end pb-14 pt-28 sm:pb-18 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
       parallaxDepth={0.7}
     >
       <div className="max-w-3xl">
@@ -26,7 +26,7 @@ export function AboutHero() {
           label={aboutSection.label}
         />
 
-        <h1 className="mt-8 max-w-3xl text-balance text-hero font-semibold uppercase">
+        <h1 className="mt-7 max-w-3xl text-balance text-hero font-semibold uppercase sm:mt-8">
           More than
           <span className="block text-muted-foreground">
             just code.
