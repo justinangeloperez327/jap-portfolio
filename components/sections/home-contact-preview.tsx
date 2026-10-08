@@ -21,12 +21,13 @@ export function HomeContactPreview() {
     >
       <div
         aria-hidden="true"
+        data-scroll-depth="0.65"
         className="pointer-events-none absolute -left-8 bottom-[-2rem] select-none font-mono text-[clamp(9rem,22vw,22rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.015]"
       >
         04
       </div>
 
-      <div className="site-container section-space relative">
+      <div data-scroll-reveal className="site-container section-space relative">
         <SectionLabel
           number={contactSection.number}
           label={contactSection.label}
