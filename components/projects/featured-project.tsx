@@ -29,7 +29,7 @@ export function FeaturedProject({
       <div
         data-scroll-depth="0.45"
         className={cn(
-          "relative aspect-[16/10] overflow-hidden border border-border",
+          "relative aspect-[4/3] overflow-hidden border border-border sm:aspect-[16/10]",
           surface === "subtle" ? "bg-surface-subtle" : "bg-background",
           contentOnRight ? "lg:order-1" : "lg:order-2",
         )}
@@ -87,7 +87,7 @@ export function FeaturedProject({
         <h3 className="mt-4 text-display font-semibold">
           <Link
             href={`/projects/${project.slug}`}
-            className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex min-h-11 touch-manipulation items-center transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             {project.title}
           </Link>
@@ -114,7 +114,7 @@ export function FeaturedProject({
         {showProjectLink && (
           <Link
             href={`/projects/${project.slug}`}
-            className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group mt-7 inline-flex min-h-11 touch-manipulation items-center gap-3 text-sm font-medium sm:mt-8 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Explore {project.title}
             <span
