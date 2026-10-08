@@ -13,13 +13,11 @@ export function MobileNavigation() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!open) {
       return;
     }
+
+    const previousOverflow = document.body.style.overflow;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -32,7 +30,7 @@ export function MobileNavigation() {
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [open]);
 
@@ -45,12 +43,14 @@ export function MobileNavigation() {
         aria-controls="mobile-navigation"
         onClick={() => setOpen((current) => !current)}
         className={cn(
-          "relative z-[70] grid size-11 place-items-center border border-border bg-background/60",
+          "relative z-[70] grid size-12 place-items-center border border-border bg-background/60",
           "backdrop-blur-md transition-colors hover:bg-surface-raised",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         )}
       >
-        <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+        <span className="sr-only">
+          {open ? "Close menu" : "Open menu"}
+        </span>
         <span aria-hidden="true" className="relative block h-4 w-5">
           <span
             className={cn(
@@ -73,7 +73,7 @@ export function MobileNavigation() {
         aria-modal="true"
         aria-label="Site navigation"
         className={cn(
-          "fixed inset-0 z-[65] bg-background/96 backdrop-blur-xl transition-[opacity,visibility] duration-200",
+          "fixed inset-0 z-[65] overflow-y-auto bg-background/96 backdrop-blur-xl transition-[opacity,visibility] duration-200",
           open
             ? "visible opacity-100"
             : "invisible pointer-events-none opacity-0",
@@ -82,7 +82,7 @@ export function MobileNavigation() {
       >
         <nav
           aria-label="Mobile navigation"
-          className="site-container flex min-h-svh items-center py-28"
+          className="site-container flex min-h-svh items-start pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(7.5rem,calc(env(safe-area-inset-top)+6rem))] sm:items-center sm:py-28"
         >
           <ul className="w-full">
             {siteNav.map((item, index) => {
@@ -94,11 +94,12 @@ export function MobileNavigation() {
                     href={item.href}
                     tabIndex={open ? 0 : -1}
                     aria-current={active ? "page" : undefined}
-                    className="group flex items-center justify-between py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    onClick={() => setOpen(false)}
+                    className="group flex min-h-16 items-center justify-between gap-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-20 sm:py-6"
                   >
                     <span
                       className={cn(
-                        "text-display font-medium transition-colors",
+                        "text-[clamp(2rem,10vw,3.5rem)] font-medium leading-none tracking-[-0.04em] transition-colors sm:text-display",
                         active
                           ? "text-foreground"
                           : "text-muted-foreground group-hover:text-foreground",
@@ -109,8 +110,10 @@ export function MobileNavigation() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "font-mono text-xs tracking-[0.18em]",
-                        active ? "text-primary" : "text-muted-foreground/50",
+                        "shrink-0 font-mono text-xs tracking-[0.18em]",
+                        active
+                          ? "text-primary"
+                          : "text-muted-foreground/50",
                       )}
                     >
                       {String(index).padStart(2, "0")}
