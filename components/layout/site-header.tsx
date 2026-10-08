@@ -9,7 +9,7 @@ export function SiteHeader() {
   return (
     <header
       data-site-header
-      className="layer-navigation pointer-events-none fixed inset-x-0 top-0"
+      className="layer-navigation pointer-events-none fixed inset-x-0 top-0 pt-[env(safe-area-inset-top)]"
     >
       <div className="site-container flex h-[var(--header-height)] items-center justify-between">
         <Link
