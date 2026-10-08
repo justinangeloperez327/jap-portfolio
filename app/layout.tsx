@@ -56,9 +56,7 @@ export default function RootLayout({
         <SiteHeader />
 
         <PageTransition>
-          <div id="main-content" tabIndex={-1} className="outline-none">
-            {children}
-          </div>
+          <div>{children}</div>
         </PageTransition>
 
         <SiteFooter />
