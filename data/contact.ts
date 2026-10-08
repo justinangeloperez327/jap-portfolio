@@ -15,9 +15,3 @@ export const contactResponseNotes = [
     value: "Direct communication, explicit scope, and maintainable delivery.",
   },
 ] as const;
-
-export const contactLinkLabels = [
-  "GitHub",
-  "LinkedIn",
-  "Email",
-] as const;
