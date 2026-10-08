@@ -8,6 +8,7 @@ export { artwork } from "./artwork";
 export { brand } from "./brand";
 export {
   contactFocusAreas,
+  contactLinkLabels,
   contactResponseNotes,
 } from "./contact";
 export {
