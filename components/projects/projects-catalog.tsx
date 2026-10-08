@@ -53,14 +53,14 @@ function ProjectCatalogRow({
     <article
       className="grid gap-5 border-b border-border py-7 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
     >
-      <span className="font-mono text-xs text-primary">
+      <span aria-hidden="true" className="font-mono text-xs text-primary">
         {String(index + 1).padStart(2, "0")}
       </span>
 
       <div>
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between md:gap-8">
           <div>
-            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/50">
+            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/70">
               {project.category} · {project.status}
             </p>
 
@@ -90,7 +90,7 @@ function ProjectCatalogRow({
           {project.technologies.map((technology) => (
             <li
               key={technology}
-              className="font-mono text-[0.6875rem] text-foreground/50"
+              className="font-mono text-[0.6875rem] text-foreground/70"
             >
               {technology}
             </li>
@@ -159,6 +159,7 @@ export function ProjectsCatalog() {
             </p>
 
             <div
+              role="group"
               aria-label="Filter projects by category"
               className="mt-9 -mx-1 flex snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto border-y border-border px-1 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:gap-x-5 sm:gap-y-2 sm:overflow-visible sm:px-0"
             >
@@ -175,7 +176,7 @@ export function ProjectsCatalog() {
                       "relative min-h-11 shrink-0 snap-start touch-manipulation whitespace-nowrap px-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       active
                         ? "text-primary"
-                        : "text-muted-foreground/55 hover:text-foreground",
+                        : "text-muted-foreground/70 hover:text-foreground",
                     )}
                   >
                     {filter}
@@ -193,7 +194,7 @@ export function ProjectsCatalog() {
 
             <p
               aria-live="polite"
-              className="mt-4 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground/45"
+              className="mt-4 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground/70"
             >
               {activeFilter === "All"
                 ? `${projects.length} projects`
