@@ -27,7 +27,9 @@ export function HomeHeroMotion({
         compactViewport: "(max-width: 47.999rem)",
       },
     }).add((self) => {
-      const reduceMotion = self.matches.reduceMotion;
+      const matches = self?.matches;
+      const reduceMotion =
+        matches?.reduceMotion ?? false;
       const rootElement = root.current;
 
       if (!rootElement) {
@@ -269,7 +271,7 @@ export function HomeHeroMotion({
         queueDepthRender();
       };
 
-      if (self.matches.finePointer) {
+      if (matches?.finePointer) {
         rootElement.addEventListener(
           "pointermove",
           applyPointerDepth,
@@ -280,7 +282,7 @@ export function HomeHeroMotion({
         );
       }
 
-      if (!self.matches.compactViewport) {
+      if (!matches?.compactViewport) {
         window.addEventListener("scroll", applyScrollDepth, {
           passive: true,
         });
