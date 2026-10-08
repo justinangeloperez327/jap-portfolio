@@ -78,6 +78,12 @@ export function MobileNavigation() {
         focusableElements[focusableElements.length - 1];
       const active = document.activeElement;
 
+      if (!dialog?.contains(active)) {
+        event.preventDefault();
+        first.focus();
+        return;
+      }
+
       if (event.shiftKey && active === first) {
         event.preventDefault();
         last.focus();
@@ -167,7 +173,13 @@ export function MobileNavigation() {
                     href={item.href}
                     tabIndex={open ? 0 : -1}
                     aria-current={active ? "page" : undefined}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      if (active) {
+                        closeAndReturnFocus();
+                      } else {
+                        setOpen(false);
+                      }
+                    }}
                     className="group flex min-h-16 items-center justify-between gap-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-20 sm:py-6"
                   >
                     <span
