@@ -223,22 +223,32 @@
   .cinematic-overlay-left {
     background:
       linear-gradient(
+        180deg,
+        transparent 12%,
+        var(--overlay-soft) 46%,
+        var(--overlay-heavy) 100%
+      ),
+      linear-gradient(
         90deg,
         var(--overlay-heavy) 0%,
-        var(--overlay-medium) 42%,
-        var(--overlay-soft) 72%,
-        transparent 100%
+        var(--overlay-medium) 64%,
+        var(--overlay-soft) 100%
       );
   }
 
   .cinematic-overlay-right {
     background:
       linear-gradient(
+        180deg,
+        transparent 12%,
+        var(--overlay-soft) 46%,
+        var(--overlay-heavy) 100%
+      ),
+      linear-gradient(
         270deg,
         var(--overlay-heavy) 0%,
-        var(--overlay-medium) 42%,
-        var(--overlay-soft) 72%,
-        transparent 100%
+        var(--overlay-medium) 64%,
+        var(--overlay-soft) 100%
       );
   }
 
@@ -283,5 +293,29 @@
   [data-parallax-layer] {
     transform: none !important;
     will-change: auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  .cinematic-overlay-left {
+    background:
+      linear-gradient(
+        90deg,
+        var(--overlay-heavy) 0%,
+        var(--overlay-medium) 42%,
+        var(--overlay-soft) 72%,
+        transparent 100%
+      );
+  }
+
+  .cinematic-overlay-right {
+    background:
+      linear-gradient(
+        270deg,
+        var(--overlay-heavy) 0%,
+        var(--overlay-medium) 42%,
+        var(--overlay-soft) 72%,
+        transparent 100%
+      );
   }
 }
