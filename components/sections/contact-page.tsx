@@ -2,6 +2,7 @@ import { PageHero } from "@/components/media";
 import {
   artwork,
   contactFocusAreas,
+  contactLinkLabels,
   contactResponseNotes,
   portfolioSections,
 } from "@/data";
@@ -84,6 +85,22 @@ export function ContactPage() {
               </div>
             ))}
           </dl>
+
+          <div className="mt-8 border-t border-border/70 pt-5">
+            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/45">
+              Elsewhere
+            </p>
+            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {contactLinkLabels.map((label) => (
+                <span
+                  key={label}
+                  className="text-sm text-foreground/60"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="border border-border/85 bg-background/60 p-5 shadow-2xl shadow-black/15 backdrop-blur-xl sm:p-7 lg:p-8">
