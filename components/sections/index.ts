@@ -6,6 +6,7 @@ export { HomeContactPreview } from "./home-contact-preview";
 export { HomeHero } from "./home-hero";
 export { HomeProjectsPreview } from "./home-projects-preview";
 export { HomeSkillsPreview } from "./home-skills-preview";
+export { ProjectsAdditional } from "./projects-additional";
 export { ProjectsCatalogIntro } from "./projects-catalog-intro";
 export { ProjectsFeatured } from "./projects-featured";
 export { ProjectsHero } from "./projects-hero";
