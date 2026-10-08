@@ -4,9 +4,46 @@ export type PublicLink = {
   external: boolean;
 };
 
+function normalizeExternalUrl(value: string | undefined) {
+  const trimmed = value?.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  try {
+    const url = new URL(trimmed);
+
+    if (url.protocol !== "https:" && url.protocol !== "http:") {
+      return null;
+    }
+
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function normalizePublicEmail(value: string | undefined) {
+  const trimmed = value?.trim();
+
+  if (
+    !trimmed ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)
+  ) {
+    return null;
+  }
+
+  return trimmed;
+}
+
 export function getPublicLinks(): readonly PublicLink[] {
-  const linkedIn = process.env.PUBLIC_LINKEDIN_URL?.trim() || null;
-  const email = process.env.PUBLIC_CONTACT_EMAIL?.trim() || null;
+  const linkedIn = normalizeExternalUrl(
+    process.env.PUBLIC_LINKEDIN_URL,
+  );
+  const email = normalizePublicEmail(
+    process.env.PUBLIC_CONTACT_EMAIL,
+  );
 
   return [
     {
