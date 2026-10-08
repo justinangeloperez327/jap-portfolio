@@ -52,6 +52,8 @@
   --content-max: 80rem;
   --reading-max: 44rem;
   --header-height: 4.5rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
   --page-gutter: clamp(1.25rem, 3vw, 3.5rem);
   --section-space: clamp(5rem, 9vw, 9rem);
   --hero-min-height: 100svh;
@@ -160,6 +162,12 @@
   a,
   button {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
 }
 
@@ -317,5 +325,18 @@
         var(--overlay-soft) 72%,
         transparent 100%
       );
+  }
+}
+
+@media (max-width: 47.999rem) {
+  :root {
+    --page-gutter: 1.25rem;
+    --section-space: clamp(4rem, 14vw, 5.5rem);
+  }
+
+  [data-scroll-depth],
+  [data-scroll-zoom] {
+    translate: none !important;
+    scale: 1 !important;
   }
 }
