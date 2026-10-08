@@ -70,7 +70,7 @@ function PointList({
           key={point.title}
           className="grid gap-4 border-b border-border py-6 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
         >
-          <span className="font-mono text-xs text-primary">
+          <span aria-hidden="true" className="font-mono text-xs text-primary">
             {String(index + 1).padStart(2, "0")}
           </span>
 
@@ -100,7 +100,7 @@ function TextList({
           key={item}
           className="grid gap-4 border-b border-border py-5 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
         >
-          <span className="font-mono text-xs text-primary">
+          <span aria-hidden="true" className="font-mono text-xs text-primary">
             {String(index + 1).padStart(2, "0")}
           </span>
           <p className="text-sm leading-6 text-muted-foreground">
@@ -290,7 +290,7 @@ export function ProjectCaseStudyView({
               key={technology}
               className="border-b border-border py-5 sm:min-h-28 sm:px-6 sm:odd:border-r sm:odd:pl-0 sm:even:pr-0"
             >
-              <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+              <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/60">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="mt-3 font-mono text-sm text-foreground/80">
