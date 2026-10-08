@@ -6,11 +6,6 @@ import {
   useRef,
 } from "react";
 import { usePathname } from "next/navigation";
-import {
-  animate,
-  createScope,
-  utils,
-} from "animejs";
 
 import { ScrollMotion } from "@/components/motion";
 import { cn } from "@/lib/utils";
@@ -34,49 +29,43 @@ export function PageTransition({
       return;
     }
 
-    const rootElement = root.current;
-
     requestAnimationFrame(() => {
       document
         .getElementById("main-content")
         ?.focus({ preventScroll: true });
     });
 
-    if (!rootElement) {
+    const rootElement = root.current;
+
+    if (
+      !rootElement ||
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches
+    ) {
       return;
     }
 
-    const scope = createScope({
-      root,
-      mediaQueries: {
-        reduceMotion:
-          "(prefers-reduced-motion: reduce)",
-      },
-    }).add((self) => {
-      if (self.matches.reduceMotion) {
-        utils.set(rootElement, {
+    const animation = rootElement.animate(
+      [
+        {
+          opacity: 0,
+          transform: "translateY(8px)",
+        },
+        {
           opacity: 1,
-          y: 0,
-        });
-
-        return;
-      }
-
-      utils.set(rootElement, {
-        opacity: 0,
-        y: 8,
-      });
-
-      animate(rootElement, {
-        opacity: 1,
-        y: 0,
+          transform: "translateY(0)",
+        },
+      ],
+      {
         duration: 360,
-        ease: "out(3)",
-      });
-    });
+        easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+        fill: "both",
+      },
+    );
 
     return () => {
-      scope.revert();
+      animation.cancel();
     };
   }, [pathname]);
 
