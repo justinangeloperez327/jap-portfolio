@@ -8,7 +8,11 @@ import {
 
 export default function Home() {
   return (
-    <main className="bg-background text-foreground">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="bg-background text-foreground outline-none"
+    >
       <HomeHero />
       <HomeAboutPreview />
       <HomeSkillsPreview />
