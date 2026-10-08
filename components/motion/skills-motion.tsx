@@ -25,6 +25,7 @@ export function SkillsMotion({
         reduceMotion: "(prefers-reduced-motion: reduce)",
       },
     }).add((self) => {
+      const matches = self?.matches;
       const rootElement = root.current;
 
       if (!rootElement) {
@@ -60,7 +61,7 @@ export function SkillsMotion({
         ),
       ].filter(Boolean) as HTMLElement[];
 
-      if (self.matches.reduceMotion) {
+      if (matches?.reduceMotion) {
         utils.set(allTargets, {
           opacity: 1,
           x: 0,
