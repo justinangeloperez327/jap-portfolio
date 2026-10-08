@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { siteNav } from "@/data";
+import { BrandMark } from "@/components/brand";
+import { brand, siteNav } from "@/data";
 
 export function SiteFooter() {
   return (
@@ -9,12 +10,13 @@ export function SiteFooter() {
         <div>
           <Link
             href="/"
-            className="inline-flex text-lg font-semibold tracking-[-0.05em] text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="JAP Portfolio home"
+            className="inline-flex text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            JAP
+            <BrandMark aria-hidden="true" className="h-7" />
           </Link>
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
-            Software, frameworks, and digital systems by Justin Angelo Perez.
+            {brand.description}
           </p>
         </div>
 
@@ -34,7 +36,7 @@ export function SiteFooter() {
             </ul>
           </nav>
           <p className="mt-4 text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} Justin Angelo Perez.
+            © {new Date().getFullYear()} {brand.author}.
           </p>
         </div>
       </div>
