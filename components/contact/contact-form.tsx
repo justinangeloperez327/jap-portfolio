@@ -80,6 +80,21 @@ export function ContactForm() {
         message:
           "Check the highlighted fields and try again.",
       });
+
+      const firstInvalidField = (
+        ["name", "email", "subject", "message"] as const
+      ).find((field) => nextErrors[field]);
+
+      requestAnimationFrame(() => {
+        if (firstInvalidField) {
+          form
+            .querySelector<HTMLElement>(
+              `[name="${firstInvalidField}"]`,
+            )
+            ?.focus();
+        }
+      });
+
       return;
     }
 
@@ -106,6 +121,20 @@ export function ContactForm() {
       if (!response.ok || !result.ok) {
         if (result.errors) {
           setErrors(result.errors);
+
+          const firstInvalidField = (
+            ["name", "email", "subject", "message"] as const
+          ).find((field) => result.errors?.[field]);
+
+          requestAnimationFrame(() => {
+            if (firstInvalidField) {
+              form
+                .querySelector<HTMLElement>(
+                  `[name="${firstInvalidField}"]`,
+                )
+                ?.focus();
+            }
+          });
         }
 
         setSubmitState({
@@ -313,7 +342,12 @@ export function ContactForm() {
       </div>
 
       <div
-        aria-live="polite"
+        aria-live={
+          submitState.status === "error"
+            ? "assertive"
+            : "polite"
+        }
+        aria-atomic="true"
         role={
           submitState.status === "error"
             ? "alert"
