@@ -48,7 +48,7 @@ export default function RootLayout({
       <body>
         <a
           href="#main-content"
-          className="fixed left-4 top-4 z-[80] -translate-y-24 bg-foreground px-4 py-2 text-sm font-medium text-background transition-transform focus:translate-y-0"
+          className="fixed left-4 top-[max(1rem,env(safe-area-inset-top))] z-[90] -translate-y-32 border border-background/20 bg-foreground px-4 py-3 text-sm font-medium text-background shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-ring"
         >
           Skip to content
         </a>
@@ -56,9 +56,9 @@ export default function RootLayout({
         <SiteHeader />
 
         <PageTransition>
-          <div id="main-content" tabIndex={-1}>
+          <main id="main-content" tabIndex={-1} className="outline-none">
             {children}
-          </div>
+          </main>
         </PageTransition>
 
         <SiteFooter />
