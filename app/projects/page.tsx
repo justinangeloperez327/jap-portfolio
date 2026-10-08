@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="bg-background text-foreground">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="bg-background text-foreground outline-none"
+    >
       <ProjectsHero />
       <ProjectsCatalog />
     </main>
