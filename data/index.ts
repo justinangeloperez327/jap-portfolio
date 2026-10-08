@@ -10,7 +10,11 @@ export {
   engineeringJourney,
   professionalExperienceThemes,
 } from "./experience";
-export { featuredProjects } from "./featured-projects";
+export {
+  featuredProjects,
+  getProjectBySlug,
+  projects,
+} from "./projects";
 export { portfolioSections, siteNav } from "./site";
 export {
   skillArchitecture,
