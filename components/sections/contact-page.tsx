@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/contact";
 import { PageHero } from "@/components/media";
 import {
   artwork,
@@ -13,8 +14,6 @@ const contactSection = portfolioSections.find(
   (section) => section.id === "contact",
 );
 
-const fieldClassName =
-  "mt-2 w-full border border-border bg-background/45 px-4 py-3 text-sm text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/35 focus:border-primary/55 focus:ring-1 focus:ring-primary/35";
 
 export function ContactPage() {
   if (!contactSection) {
@@ -120,91 +119,7 @@ export function ContactPage() {
             />
           </div>
 
-          <form
-            aria-label="Contact form preview"
-            className="mt-6"
-          >
-            <fieldset disabled className="grid gap-5">
-              <div>
-                <label
-                  htmlFor="contact-name"
-                  className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
-                >
-                  Name
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  placeholder="Your name"
-                  className={fieldClassName}
-                />
-              </div>
-
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="contact-email"
-                    className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    className={fieldClassName}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="contact-subject"
-                    className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    id="contact-subject"
-                    name="subject"
-                    type="text"
-                    placeholder="Project or idea"
-                    className={fieldClassName}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="contact-message"
-                  className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={6}
-                  placeholder="Tell me what you are trying to build, improve, or solve."
-                  className={fieldClassName}
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-1 inline-flex min-h-12 w-full items-center justify-between border border-border bg-foreground px-5 text-sm font-medium text-background disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <span>Send Message</span>
-                <span aria-hidden="true">→</span>
-              </button>
-            </fieldset>
-          </form>
-
-          <p className="mt-4 text-xs leading-5 text-muted-foreground/55">
-            Form delivery and validation are being wired in the next
-            implementation step.
-          </p>
+          <ContactForm />
         </div>
       </div>
     </PageHero>
