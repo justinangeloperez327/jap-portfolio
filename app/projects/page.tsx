@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import {
+  ProjectsAdditional,
   ProjectsCatalogIntro,
   ProjectsFeatured,
   ProjectsHero,
@@ -18,6 +19,7 @@ export default function ProjectsPage() {
       <ProjectsHero />
       <ProjectsCatalogIntro />
       <ProjectsFeatured />
+      <ProjectsAdditional />
     </main>
   );
 }
