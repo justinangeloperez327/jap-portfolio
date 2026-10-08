@@ -4,46 +4,68 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  color-scheme: dark;
+
+  /* Shape */
+  --radius: 0.5rem;
+
+  /* Core palette */
+  --background: oklch(0.105 0.018 262);
+  --foreground: oklch(0.965 0.006 255);
+  --card: oklch(0.145 0.022 262 / 78%);
+  --card-foreground: oklch(0.965 0.006 255);
+  --popover: oklch(0.135 0.022 262 / 96%);
+  --popover-foreground: oklch(0.965 0.006 255);
+  --primary: oklch(0.79 0.13 210);
+  --primary-foreground: oklch(0.105 0.018 262);
+  --secondary: oklch(0.19 0.026 262);
+  --secondary-foreground: oklch(0.93 0.008 255);
+  --muted: oklch(0.18 0.02 262);
+  --muted-foreground: oklch(0.68 0.018 255);
+  --accent: oklch(0.68 0.15 292);
+  --accent-foreground: oklch(0.97 0.006 255);
+  --destructive: oklch(0.64 0.22 25);
+  --border: oklch(0.96 0.006 255 / 11%);
+  --input: oklch(0.96 0.006 255 / 14%);
+  --ring: oklch(0.79 0.13 210 / 65%);
+
+  /* Portfolio accents */
+  --neon-cyan: oklch(0.79 0.13 210);
+  --neon-violet: oklch(0.68 0.15 292);
+  --neon-magenta: oklch(0.69 0.18 337);
+  --neon-blue: oklch(0.63 0.16 252);
+
+  /* Cinematic surfaces */
+  --surface-subtle: oklch(0.14 0.02 262 / 58%);
+  --surface-raised: oklch(0.17 0.025 262 / 78%);
+  --surface-strong: oklch(0.2 0.028 262 / 92%);
+  --glass: oklch(0.16 0.024 262 / 62%);
+  --glass-border: oklch(0.96 0.006 255 / 12%);
+  --hairline: oklch(0.96 0.006 255 / 9%);
+
+  /* Page overlays */
+  --overlay-heavy: rgb(2 6 23 / 88%);
+  --overlay-medium: rgb(2 6 23 / 58%);
+  --overlay-soft: rgb(2 6 23 / 26%);
+
+  /* Layout */
+  --content-max: 80rem;
+  --reading-max: 44rem;
+  --header-height: 4.5rem;
+  --page-gutter: clamp(1.25rem, 3vw, 3.5rem);
+  --section-space: clamp(5rem, 9vw, 9rem);
+  --hero-min-height: 100svh;
+
+  /* Layering */
+  --z-background: 0;
+  --z-atmosphere: 10;
+  --z-content: 20;
+  --z-navigation: 50;
+  --z-overlay: 60;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -65,10 +87,34 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-violet: var(--neon-violet);
+  --color-neon-magenta: var(--neon-magenta);
+  --color-neon-blue: var(--neon-blue);
+
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-strong: var(--surface-strong);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-hairline: var(--hairline);
+
+  --font-sans:
+    "Segoe UI Variable", "SF Pro Display", "SF Pro Text", "Inter",
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono:
+    "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+
+  --breakpoint-xs: 30rem;
+  --breakpoint-3xl: 120rem;
 }
 
 @layer base {
@@ -77,11 +123,82 @@
   }
 
   html {
+    min-width: 20rem;
     background: var(--background);
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    min-height: 100vh;
+    @apply bg-background font-sans text-foreground antialiased;
+    min-height: 100svh;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--neon-cyan) 28%, transparent);
+    color: var(--foreground);
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .site-container {
+    width: min(100% - (var(--page-gutter) * 2), var(--content-max));
+    margin-inline: auto;
+  }
+
+  .reading-width {
+    width: min(100%, var(--reading-max));
+  }
+
+  .section-space {
+    padding-block: var(--section-space);
+  }
+
+  .hero-height {
+    min-height: var(--hero-min-height);
+  }
+
+  .glass-surface {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .cinematic-overlay-left {
+    background:
+      linear-gradient(
+        90deg,
+        var(--overlay-heavy) 0%,
+        var(--overlay-medium) 42%,
+        var(--overlay-soft) 72%,
+        transparent 100%
+      );
+  }
+
+  .cinematic-overlay-bottom {
+    background:
+      linear-gradient(
+        180deg,
+        transparent 42%,
+        var(--overlay-soft) 66%,
+        var(--overlay-heavy) 100%
+      );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
