@@ -1,6 +1,7 @@
 import {
   HomeAboutPreview,
   HomeHero,
+  HomeProjectsPreview,
   HomeSkillsPreview,
 } from "@/components/sections";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeHero />
       <HomeAboutPreview />
       <HomeSkillsPreview />
+      <HomeProjectsPreview />
     </main>
   );
 }
