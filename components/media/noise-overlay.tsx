@@ -11,7 +11,7 @@ export function NoiseOverlay({
     <div
       aria-hidden="true"
       className={cn(
-        "cinematic-noise pointer-events-none absolute inset-0 opacity-[0.035]",
+        "cinematic-noise pointer-events-none absolute inset-0 hidden opacity-[0.035] sm:block",
         className,
       )}
     />
