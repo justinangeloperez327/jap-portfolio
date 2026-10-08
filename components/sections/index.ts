@@ -1,6 +1,7 @@
 export { AboutContent } from "./about-content";
 export { AboutExperience } from "./about-experience";
 export { AboutHero } from "./about-hero";
+export { ContactPage } from "./contact-page";
 export { HomeAboutPreview } from "./home-about-preview";
 export { HomeContactPreview } from "./home-contact-preview";
 export { HomeHero } from "./home-hero";
