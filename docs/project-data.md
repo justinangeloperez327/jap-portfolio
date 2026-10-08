@@ -44,3 +44,27 @@ Image, GitHub, and website values are nullable so incomplete project records sti
 `getProjectBySlug()` provides the lookup boundary that the dynamic project-detail route can use later.
 
 Do not create separate project metadata objects for Home or individual pages. Extend the central `Project` model when a field is genuinely shared across the portfolio.
+
+
+## Case studies
+
+Long-form project content is stored separately in `data/project-case-studies.ts`.
+
+This keeps the core `Project` record compact for catalog rendering while allowing the dynamic `/projects/[slug]` route to render:
+
+- Overview
+- Context
+- Problem
+- Design Principles
+- Architecture
+- Implementation
+- Developer Experience
+- Engineering Decisions
+- Technology
+- Challenges
+- Result
+- Repository / external links
+
+Flagship projects can provide curated case-study content. Other catalog projects use a structured fallback derived from the central project metadata until a bespoke narrative is added.
+
+The dynamic route pre-generates every known project slug and still validates the requested slug at render time before displaying a case study.
