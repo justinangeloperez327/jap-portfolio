@@ -24,7 +24,7 @@ export function FeaturedProject({
   return (
     <article
       data-scroll-reveal
-      className="grid gap-8 border-b border-border py-10 lg:grid-cols-2 lg:items-center lg:gap-14 lg:py-16"
+      className="grid gap-8 border-b border-border py-10 lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-14 lg:py-16"
     >
       <div
         data-scroll-depth="0.45"
@@ -38,7 +38,7 @@ export function FeaturedProject({
           src={project.image ?? undefined}
           alt={`${project.title} project artwork`}
           label={`${project.title} artwork coming later`}
-          sizes="(min-width: 1024px) 50vw, 100vw"
+          sizes="(min-width: 1280px) 50vw, (min-width: 1024px) 52vw, 100vw"
           position={project.imagePosition}
           scrollZoom
           className="absolute inset-0"
