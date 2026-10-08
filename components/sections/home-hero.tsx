@@ -11,9 +11,9 @@ export function HomeHero() {
         artwork={artwork.home}
         priority
         overlay="left"
-        contentClassName="items-end pb-16 pt-28 sm:pb-20 lg:items-center lg:pb-24"
+        contentClassName="items-end pb-14 pt-28 sm:pb-18 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
       >
-        <div className="grid w-full gap-14 lg:grid-cols-[minmax(0,42rem)_1fr] lg:items-end">
+        <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,42rem)_1fr] lg:items-end lg:gap-14">
           <div className="max-w-2xl">
             <div
               data-home-eyebrow
