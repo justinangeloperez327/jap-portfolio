@@ -85,10 +85,140 @@ export const projects = [
     website: null,
     featured: true,
   },
+  {
+    slug: "inventory-platform",
+    title: "Inventory Platform",
+    subtitle: "Angular · NestJS Inventory System",
+    description:
+      "A frontend-and-API inventory platform focused on practical stock workflows, clean application boundaries, authentication, and a backend that can be deployed independently.",
+    category: "Web Apps",
+    technologies: ["Angular", "NestJS", "TypeScript", "PostgreSQL", "Docker"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "left",
+    status: "In Development",
+    github: null,
+    website: null,
+    featured: false,
+  },
+  {
+    slug: "construction-management",
+    title: "Construction Management",
+    subtitle: ".NET · Clean Architecture",
+    description:
+      "A construction-management system exploring clean application boundaries, operational workflows, project data, and maintainable enterprise-style architecture.",
+    category: "Web Apps",
+    technologies: [".NET", "C#", "Blazor", "Clean Architecture", "REST"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "right",
+    status: "In Development",
+    github: null,
+    website: null,
+    featured: false,
+  },
+  {
+    slug: "stars-align",
+    title: "Stars Align",
+    subtitle: "Next.js · Frontend Product",
+    description:
+      "A polished frontend application centered on calm visual design, responsive interaction, and a deployment-ready Next.js architecture.",
+    category: "Frontend",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "left",
+    status: "Active",
+    github: null,
+    website: null,
+    featured: false,
+  },
+  {
+    slug: "daily-devotion",
+    title: "Daily Devotion",
+    subtitle: "Next.js · Community Web App",
+    description:
+      "A community-focused devotion application with authenticated feeds, scripture-centered posts, structured reflection, and persistent application data.",
+    category: "Web Apps",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "right",
+    status: "In Development",
+    github: null,
+    website: null,
+    featured: false,
+  },
+  {
+    slug: "jap-portfolio",
+    title: "JAP Portfolio",
+    subtitle: "Next.js · Cinematic Portfolio",
+    description:
+      "This portfolio itself: a dark editorial experience combining cinematic artwork, restrained Anime.js motion, project storytelling, and a reusable content architecture.",
+    category: "Frontend",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Anime.js", "TypeScript"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "left",
+    status: "Active",
+    github: null,
+    website: null,
+    featured: false,
+  },
+  {
+    slug: "api-systems",
+    title: "API Systems",
+    subtitle: "NestJS · REST Infrastructure",
+    description:
+      "Backend systems focused on explicit REST contracts, authentication, OpenAPI documentation, PostgreSQL persistence, and container-ready deployment workflows.",
+    category: "Backend",
+    technologies: ["NestJS", "REST", "OpenAPI", "JWT", "PostgreSQL", "Docker"],
+    image: null,
+    imagePosition: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    imageMirror: false,
+    contentSide: "right",
+    status: "Active",
+    github: null,
+    website: null,
+    featured: false,
+  },
 ] satisfies readonly Project[];
 
 export const featuredProjects = projects.filter(
   (project) => project.featured,
+);
+
+export const additionalProjects = projects.filter(
+  (project) => !project.featured,
 );
 
 export function getProjectBySlug(slug: string) {
