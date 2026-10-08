@@ -44,9 +44,9 @@ export function AboutContent() {
               behavior, structure, and trade-offs clear enough that the work
               can keep evolving without becoming difficult to reason about.
             </p>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
 
       <section
         data-scroll-reveal
@@ -207,9 +207,9 @@ export function AboutContent() {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
 
       <section
         data-scroll-reveal
