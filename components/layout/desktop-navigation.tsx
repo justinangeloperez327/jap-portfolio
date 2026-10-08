@@ -4,15 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { siteNav } from "@/data";
+import { isActiveRoute } from "@/lib/routes";
 import { cn } from "@/lib/utils";
-
-function isActiveRoute(pathname: string, href: string) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 export function DesktopNavigation() {
   const pathname = usePathname();
