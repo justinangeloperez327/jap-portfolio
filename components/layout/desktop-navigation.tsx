@@ -11,7 +11,7 @@ export function DesktopNavigation() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary navigation" className="hidden md:block">
+    <nav aria-label="Primary navigation" className="hidden lg:block">
       <ul className="flex items-center gap-7">
         {siteNav.map((item) => {
           const active = isActiveRoute(pathname, item.href);
