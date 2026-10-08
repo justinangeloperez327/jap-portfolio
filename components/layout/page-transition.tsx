@@ -12,6 +12,7 @@ import {
   utils,
 } from "animejs";
 
+import { ScrollMotion } from "@/components/motion";
 import { cn } from "@/lib/utils";
 
 type PageTransitionProps = {
@@ -83,7 +84,7 @@ export function PageTransition({
       data-page-transition
       data-page-path={pathname}
     >
-      {children}
+      <ScrollMotion>{children}</ScrollMotion>
     </div>
   );
 }
