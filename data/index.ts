@@ -1,3 +1,9 @@
+export {
+  aboutBuildAreas,
+  aboutInterests,
+  aboutPrinciples,
+  developmentPhilosophy,
+} from "./about";
 export { artwork } from "./artwork";
 export { brand } from "./brand";
 export { featuredProjects } from "./featured-projects";
