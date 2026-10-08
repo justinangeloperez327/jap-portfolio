@@ -5,17 +5,37 @@ import {
   SiteFooter,
   SiteHeader,
 } from "@/components/layout";
+import { brand } from "@/data";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JAP Portfolio",
-  description: "Personal portfolio of Justin Angelo Perez.",
+  applicationName: brand.name,
+  title: {
+    default: `${brand.title} | ${brand.shortName}`,
+    template: `%s | ${brand.shortName}`,
+  },
+  description: brand.description,
+  authors: [{ name: brand.author }],
+  creator: brand.author,
+  publisher: brand.author,
+  category: "technology",
+  openGraph: {
+    type: "website",
+    title: brand.title,
+    description: brand.description,
+    siteName: brand.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: brand.title,
+    description: brand.description,
+  },
 };
 
 export const viewport: Viewport = {
   colorScheme: "dark",
-  themeColor: "#070a12",
+  themeColor: brand.themeColor,
 };
 
 export default function RootLayout({
