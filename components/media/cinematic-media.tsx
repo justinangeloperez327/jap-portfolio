@@ -44,7 +44,7 @@ export function CinematicMedia({
           src={src}
           alt={alt}
           position={position}
-          priority={priority}
+          preload={priority}
           sizes={sizes}
           className={imageClassName}
         />
