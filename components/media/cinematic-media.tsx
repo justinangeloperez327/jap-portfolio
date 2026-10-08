@@ -44,15 +44,15 @@ export function CinematicMedia({
         >
           <div className="absolute inset-0 bg-[linear-gradient(120deg,var(--background)_0%,oklch(0.14_0.03_262)_48%,oklch(0.17_0.035_278)_100%)]" />
 
-          <div className="absolute -left-[10%] top-[18%] h-[38%] w-[52%] rounded-full bg-neon-cyan/8 blur-3xl" />
+          <div className="absolute -left-[10%] top-[18%] h-[38%] w-[52%] rounded-full bg-neon-cyan/[0.08] blur-3xl" />
           <div className="absolute right-[4%] top-[8%] h-[52%] w-[36%] rounded-full bg-neon-violet/10 blur-3xl" />
-          <div className="absolute bottom-[-12%] left-[28%] h-[34%] w-[58%] rounded-full bg-neon-magenta/8 blur-3xl" />
+          <div className="absolute bottom-[-12%] left-[28%] h-[34%] w-[58%] rounded-full bg-neon-magenta/[0.08] blur-3xl" />
 
           <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-background via-background/70 to-transparent" />
 
           <div className="absolute bottom-[10%] right-[12%] h-[48%] w-[24%] min-w-28 max-w-72">
-            <div className="absolute left-1/2 top-0 h-[24%] aspect-square -translate-x-1/2 rounded-full bg-foreground/8 ring-1 ring-foreground/8" />
-            <div className="absolute bottom-0 left-1/2 h-[78%] w-full -translate-x-1/2 rounded-t-[45%] bg-foreground/6 ring-1 ring-foreground/8" />
+            <div className="absolute left-1/2 top-0 h-[24%] aspect-square -translate-x-1/2 rounded-full bg-foreground/[0.08] ring-1 ring-foreground/[0.08]" />
+            <div className="absolute bottom-0 left-1/2 h-[78%] w-full -translate-x-1/2 rounded-t-[45%] bg-foreground/[0.06] ring-1 ring-foreground/[0.08]" />
           </div>
 
           <div className="absolute left-[5%] top-[12%] h-20 w-14 border border-border bg-foreground/[0.025]" />
