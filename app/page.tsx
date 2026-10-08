@@ -1,6 +1,7 @@
 import {
   HomeAboutPreview,
   HomeHero,
+  HomeSkillsPreview,
 } from "@/components/sections";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
     <main className="bg-background text-foreground">
       <HomeHero />
       <HomeAboutPreview />
+      <HomeSkillsPreview />
     </main>
   );
 }
