@@ -70,3 +70,21 @@ The Skills animation is implemented in:
 `components/motion/skills-motion.tsx`
 
 Reduced-motion preferences skip all translations and reveal content immediately.
+
+
+## Page transitions
+
+Route changes use the shared `PageTransition` layout wrapper.
+
+The transition is intentionally restrained:
+
+- It runs only after client-side route changes, not on the initial page load.
+- The incoming page starts 8px lower and fades from 0 to full opacity.
+- Duration is 360ms with the same soft `out(3)` easing used elsewhere.
+- There is no full-screen wipe, loading curtain, or artificial navigation delay.
+- Header and footer remain stable while the route content changes.
+- Page-specific hero and section motion continue to own their own choreography.
+
+This keeps navigation responsive while still giving the portfolio a consistent sense of continuity.
+
+When `prefers-reduced-motion: reduce` is active, the page is shown immediately at full opacity with no translation.
