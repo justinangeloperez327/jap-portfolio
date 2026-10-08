@@ -32,3 +32,23 @@ export type Project = {
   website: string | null;
   featured: boolean;
 };
+
+
+export type ProjectCaseStudyPoint = {
+  title: string;
+  body: string;
+};
+
+export type ProjectCaseStudy = {
+  slug: string;
+  overview: string;
+  context: string;
+  problem: string;
+  designPrinciples: readonly ProjectCaseStudyPoint[];
+  architecture: readonly ProjectCaseStudyPoint[];
+  implementation: readonly string[];
+  developerExperience: readonly string[];
+  engineeringDecisions: readonly ProjectCaseStudyPoint[];
+  challenges: readonly string[];
+  result: readonly string[];
+};
