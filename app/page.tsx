@@ -1,5 +1,6 @@
 import {
   HomeAboutPreview,
+  HomeContactPreview,
   HomeHero,
   HomeProjectsPreview,
   HomeSkillsPreview,
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeAboutPreview />
       <HomeSkillsPreview />
       <HomeProjectsPreview />
+      <HomeContactPreview />
     </main>
   );
 }
