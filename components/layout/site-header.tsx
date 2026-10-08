@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { BrandMark } from "@/components/brand";
+
 import { DesktopNavigation } from "./desktop-navigation";
 import { MobileNavigation } from "./mobile-navigation";
 
@@ -10,9 +12,9 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="JAP Portfolio home"
-          className="pointer-events-auto text-lg font-semibold tracking-[-0.05em] text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="pointer-events-auto inline-flex text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          JAP
+          <BrandMark aria-hidden="true" className="h-6 sm:h-7" />
         </Link>
 
         <div className="pointer-events-auto">
