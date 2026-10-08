@@ -136,7 +136,7 @@ export function ProjectsCatalog() {
         aria-labelledby="projects-catalog-title"
         className="site-container section-space"
       >
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] xl:gap-20">
           <div className="max-w-xl">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               Engineering Catalog
@@ -250,8 +250,8 @@ export function ProjectsCatalog() {
             className="bg-background"
           >
             <div className="site-container section-space">
-              <div className="grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20">
-                <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="grid gap-10 xl:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] xl:gap-20">
+                <div className="xl:sticky xl:top-28 xl:self-start">
                   <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
                     More Work
                   </p>
@@ -290,8 +290,8 @@ export function ProjectsCatalog() {
           className="border-y border-border bg-surface-subtle"
         >
           <div className="site-container section-space">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20">
-              <div className="lg:sticky lg:top-28 lg:self-start">
+            <div className="grid gap-10 xl:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] xl:gap-20">
+              <div className="xl:sticky xl:top-28 xl:self-start">
                 <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
                   Filtered Work
                 </p>
