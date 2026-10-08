@@ -1,18 +1,10 @@
-import { CinematicMedia } from "@/components/media/cinematic-media";
+import { PageHero } from "@/components/media";
+import { artwork } from "@/data";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <CinematicMedia
-        alt="JAP Portfolio home artwork"
-        label="Home artwork coming later"
-        priority
-        className="layer-background absolute inset-0"
-      />
-
-      <div className="cinematic-overlay-left layer-atmosphere absolute inset-0" />
-
-      <section className="hero-height site-container layer-content relative flex items-center py-24">
+    <main className="bg-background text-foreground">
+      <PageHero artwork={artwork.home} priority>
         <div className="reading-width">
           <p className="mb-5 text-label font-medium uppercase text-muted-foreground">
             Portfolio
@@ -26,7 +18,7 @@ export default function Home() {
             Building software, frameworks, and digital systems.
           </p>
         </div>
-      </section>
+      </PageHero>
     </main>
   );
 }
