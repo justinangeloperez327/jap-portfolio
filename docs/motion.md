@@ -52,3 +52,21 @@ The Home animation is implemented in:
 `components/motion/home-hero-motion.tsx`
 
 Future page and section motion should follow the same scoped-cleanup pattern.
+
+
+## Skills motion
+
+The Skills page uses viewport-triggered, one-shot reveals rather than continuous animation.
+
+- The explanation block enters first.
+- Principle rows follow with a short stagger.
+- Capability categories reveal as they enter the viewport.
+- Technologies inside each category use a tighter stagger.
+- Hover feedback is limited to subtle surface and vertical depth changes.
+- No proficiency counters, percentages, or decorative metrics are shown.
+
+The Skills animation is implemented in:
+
+`components/motion/skills-motion.tsx`
+
+Reduced-motion preferences skip all translations and reveal content immediately.
