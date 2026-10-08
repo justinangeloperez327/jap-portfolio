@@ -1,9 +1,9 @@
 import { ContactForm } from "@/components/contact";
+import { getPublicLinks } from "@/lib/public-links";
 import { PageHero } from "@/components/media";
 import {
   artwork,
   contactFocusAreas,
-  contactLinkLabels,
   contactResponseNotes,
   portfolioSections,
 } from "@/data";
@@ -19,6 +19,8 @@ export function ContactPage() {
   if (!contactSection) {
     return null;
   }
+
+  const publicLinks = getPublicLinks();
 
   return (
     <PageHero
@@ -90,14 +92,33 @@ export function ContactPage() {
               Elsewhere
             </p>
             <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
-              {contactLinkLabels.map((label) => (
-                <span
-                  key={label}
-                  className="text-sm text-foreground/60"
-                >
-                  {label}
-                </span>
-              ))}
+              {publicLinks.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noreferrer" : undefined}
+                    className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className="text-primary/70 transition-transform duration-200 group-hover:translate-x-0.5"
+                    >
+                      {link.external ? "↗" : "→"}
+                    </span>
+                  </a>
+                ) : (
+                  <span
+                    key={link.label}
+                    aria-disabled="true"
+                    className="text-sm text-muted-foreground/35"
+                  >
+                    {link.label}
+                  </span>
+                ),
+              )}
             </div>
           </div>
         </div>
