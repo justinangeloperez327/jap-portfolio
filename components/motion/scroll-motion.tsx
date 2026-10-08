@@ -6,15 +6,13 @@ import {
   useRef,
 } from "react";
 import { usePathname } from "next/navigation";
-import {
-  animate,
-  createScope,
-  utils,
-} from "animejs";
 
 type ScrollMotionProps = {
   children: ReactNode;
 };
+
+const revealEasing =
+  "cubic-bezier(0.16, 1, 0.3, 1)";
 
 export function ScrollMotion({
   children,
@@ -29,232 +27,323 @@ export function ScrollMotion({
       return;
     }
 
-    const scope = createScope({
-      root,
-      mediaQueries: {
-        reduceMotion:
-          "(prefers-reduced-motion: reduce)",
-        compactViewport: "(max-width: 47.999rem)",
-      },
-    }).add((self) => {
-      if (self.matches.reduceMotion) {
-        return;
-      }
+    const reduceMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
 
-      const revealTargets = new Set<HTMLElement>();
-      let depthTargets: HTMLElement[] = [];
-      let zoomTargets: HTMLElement[] = [];
-      let animationFrame = 0;
+    if (reduceMotionQuery.matches) {
+      return;
+    }
 
-      const refreshContinuousTargets = () => {
-        if (self.matches.compactViewport) {
-          depthTargets = [];
-          zoomTargets = [];
-          return;
-        }
+    const compactViewportQuery = window.matchMedia(
+      "(max-width: 47.999rem)",
+    );
 
-        depthTargets = Array.from(
-          rootElement.querySelectorAll<HTMLElement>(
-            "[data-scroll-depth]",
-          ),
+    const revealTargets = new Set<HTMLElement>();
+    const continuousTargets = new Set<HTMLElement>();
+    const activeDepthTargets = new Set<HTMLElement>();
+    const activeZoomTargets = new Set<HTMLElement>();
+    let animationFrame = 0;
+    let scrollListening = false;
+
+    const queueDepthUpdate = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame =
+        requestAnimationFrame(updateDepth);
+    };
+
+    const syncScrollListener = () => {
+      const shouldListen =
+        !compactViewportQuery.matches &&
+        document.visibilityState === "visible" &&
+        (activeDepthTargets.size > 0 ||
+          activeZoomTargets.size > 0);
+
+      if (shouldListen && !scrollListening) {
+        window.addEventListener(
+          "scroll",
+          queueDepthUpdate,
+          { passive: true },
         );
-        zoomTargets = Array.from(
-          rootElement.querySelectorAll<HTMLElement>(
-            "[data-scroll-zoom]",
-          ),
-        );
-      };
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            const target = entry.target as HTMLElement;
-
-            animate(target, {
-              opacity: 1,
-              y: 0,
-              duration: 620,
-              ease: "out(3)",
-            });
-
-            observer.unobserve(target);
-          });
-        },
-        {
-          rootMargin: "0px 0px -10% 0px",
-          threshold: 0.08,
-        },
-      );
-
-      const registerReveal = (target: HTMLElement) => {
-        if (revealTargets.has(target)) {
-          return;
-        }
-
-        revealTargets.add(target);
-
-        utils.set(target, {
-          opacity: 0,
-          y: self.matches.compactViewport ? 10 : 18,
-        });
-
-        observer.observe(target);
-      };
-
-      const registerTree = (node: ParentNode) => {
-        if (
-          node instanceof HTMLElement &&
-          node.matches("[data-scroll-reveal]")
-        ) {
-          registerReveal(node);
-        }
-
-        node
-          .querySelectorAll<HTMLElement>(
-            "[data-scroll-reveal]",
-          )
-          .forEach(registerReveal);
-
-        refreshContinuousTargets();
-      };
-
-      const updateDepth = () => {
-        const viewportHeight = Math.max(
-          window.innerHeight,
-          1,
-        );
-
-        depthTargets.forEach((target) => {
-          const bounds = target.getBoundingClientRect();
-
-          if (
-            bounds.bottom < -viewportHeight * 0.2 ||
-            bounds.top > viewportHeight * 1.2
-          ) {
-            return;
-          }
-
-          const center =
-            bounds.top + bounds.height / 2;
-          const normalized = Math.max(
-            -1,
-            Math.min(
-              1,
-              (center - viewportHeight / 2) /
-                (viewportHeight / 2),
-            ),
-          );
-          const depth = Number(
-            target.dataset.scrollDepth ?? "0.5",
-          );
-          const offset =
-            normalized * depth * -14;
-
-          target.style.translate =
-            `0 ${offset.toFixed(2)}px`;
-        });
-
-        zoomTargets.forEach((target) => {
-          const bounds = target.getBoundingClientRect();
-
-          if (
-            bounds.bottom < -viewportHeight * 0.2 ||
-            bounds.top > viewportHeight * 1.2
-          ) {
-            return;
-          }
-
-          const center =
-            bounds.top + bounds.height / 2;
-          const normalized = Math.max(
-            -1,
-            Math.min(
-              1,
-              (center - viewportHeight / 2) /
-                (viewportHeight / 2),
-            ),
-          );
-          const proximity =
-            1 - Math.abs(normalized);
-          const scale =
-            1 + proximity * 0.015;
-
-          target.style.scale = scale.toFixed(4);
-        });
-      };
-
-      const queueDepthUpdate = () => {
-        cancelAnimationFrame(animationFrame);
-        animationFrame =
-          requestAnimationFrame(updateDepth);
-      };
-
-      const handleResize = () => {
-        refreshContinuousTargets();
-        queueDepthUpdate();
-      };
-
-      registerTree(rootElement);
-      queueDepthUpdate();
-
-      const mutationObserver = new MutationObserver(
-        (records) => {
-          records.forEach((record) => {
-            record.addedNodes.forEach((node) => {
-              if (node instanceof HTMLElement) {
-                registerTree(node);
-              }
-            });
-          });
-
-          queueDepthUpdate();
-        },
-      );
-
-      mutationObserver.observe(rootElement, {
-        childList: true,
-        subtree: true,
-      });
-
-      window.addEventListener(
-        "scroll",
-        queueDepthUpdate,
-        { passive: true },
-      );
-      window.addEventListener(
-        "resize",
-        handleResize,
-      );
-
-      return () => {
-        observer.disconnect();
-        mutationObserver.disconnect();
-        cancelAnimationFrame(animationFrame);
-
+        scrollListening = true;
+      } else if (!shouldListen && scrollListening) {
         window.removeEventListener(
           "scroll",
           queueDepthUpdate,
         );
-        window.removeEventListener(
-          "resize",
-          handleResize,
+        scrollListening = false;
+      }
+    };
+
+    const resetContinuousStyles = () => {
+      continuousTargets.forEach((target) => {
+        target.style.removeProperty("translate");
+        target.style.removeProperty("scale");
+      });
+    };
+
+    const updateDepth = () => {
+      if (compactViewportQuery.matches) {
+        resetContinuousStyles();
+        return;
+      }
+
+      const viewportHeight = Math.max(
+        window.innerHeight,
+        1,
+      );
+
+      activeDepthTargets.forEach((target) => {
+        const bounds = target.getBoundingClientRect();
+        const center =
+          bounds.top + bounds.height / 2;
+        const normalized = Math.max(
+          -1,
+          Math.min(
+            1,
+            (center - viewportHeight / 2) /
+              (viewportHeight / 2),
+          ),
+        );
+        const depth = Number(
+          target.dataset.scrollDepth ?? "0.5",
         );
 
-        depthTargets.forEach((target) => {
-          target.style.removeProperty("translate");
+        target.style.translate =
+          `0 ${(normalized * depth * -14).toFixed(2)}px`;
+      });
+
+      activeZoomTargets.forEach((target) => {
+        const bounds = target.getBoundingClientRect();
+        const center =
+          bounds.top + bounds.height / 2;
+        const normalized = Math.max(
+          -1,
+          Math.min(
+            1,
+            (center - viewportHeight / 2) /
+              (viewportHeight / 2),
+          ),
+        );
+        const proximity =
+          1 - Math.abs(normalized);
+
+        target.style.scale =
+          (1 + proximity * 0.015).toFixed(4);
+      });
+    };
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const target = entry.target as HTMLElement;
+          const startY =
+            compactViewportQuery.matches ? 10 : 18;
+
+          const animation = target.animate(
+            [
+              {
+                opacity: 0,
+                transform: `translateY(${startY}px)`,
+              },
+              {
+                opacity: 1,
+                transform: "translateY(0)",
+              },
+            ],
+            {
+              duration: 620,
+              easing: revealEasing,
+              fill: "both",
+            },
+          );
+
+          animation.addEventListener(
+            "finish",
+            () => {
+              target.style.opacity = "";
+              target.style.transform = "";
+              animation.cancel();
+            },
+            { once: true },
+          );
+
+          revealObserver.unobserve(target);
         });
-        zoomTargets.forEach((target) => {
-          target.style.removeProperty("scale");
+      },
+      {
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.08,
+      },
+    );
+
+    const continuousObserver =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const target =
+              entry.target as HTMLElement;
+
+            if (entry.isIntersecting) {
+              if (
+                target.hasAttribute(
+                  "data-scroll-depth",
+                )
+              ) {
+                activeDepthTargets.add(target);
+              }
+
+              if (
+                target.hasAttribute(
+                  "data-scroll-zoom",
+                )
+              ) {
+                activeZoomTargets.add(target);
+              }
+            } else {
+              activeDepthTargets.delete(target);
+              activeZoomTargets.delete(target);
+            }
+          });
+
+          syncScrollListener();
+          queueDepthUpdate();
+        },
+        {
+          rootMargin: "20% 0px",
+          threshold: 0,
+        },
+      );
+
+    const registerReveal = (
+      target: HTMLElement,
+    ) => {
+      if (revealTargets.has(target)) {
+        return;
+      }
+
+      revealTargets.add(target);
+      revealObserver.observe(target);
+    };
+
+    const registerContinuous = (
+      target: HTMLElement,
+    ) => {
+      if (continuousTargets.has(target)) {
+        return;
+      }
+
+      continuousTargets.add(target);
+      continuousObserver.observe(target);
+    };
+
+    const registerTree = (node: ParentNode) => {
+      if (
+        node instanceof HTMLElement &&
+        node.matches("[data-scroll-reveal]")
+      ) {
+        registerReveal(node);
+      }
+
+      node
+        .querySelectorAll<HTMLElement>(
+          "[data-scroll-reveal]",
+        )
+        .forEach(registerReveal);
+
+      if (
+        node instanceof HTMLElement &&
+        node.matches(
+          "[data-scroll-depth], [data-scroll-zoom]",
+        )
+      ) {
+        registerContinuous(node);
+      }
+
+      node
+        .querySelectorAll<HTMLElement>(
+          "[data-scroll-depth], [data-scroll-zoom]",
+        )
+        .forEach(registerContinuous);
+    };
+
+    const handleResize = () => {
+      if (compactViewportQuery.matches) {
+        resetContinuousStyles();
+      }
+
+      queueDepthUpdate();
+      syncScrollListener();
+    };
+
+    const handleVisibilityChange = () => {
+      syncScrollListener();
+
+      if (document.visibilityState === "visible") {
+        queueDepthUpdate();
+      }
+    };
+
+    registerTree(rootElement);
+
+    const mutationObserver = new MutationObserver(
+      (records) => {
+        records.forEach((record) => {
+          record.addedNodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+              registerTree(node);
+            }
+          });
         });
-      };
+      },
+    );
+
+    mutationObserver.observe(rootElement, {
+      childList: true,
+      subtree: true,
     });
 
+    window.addEventListener("resize", handleResize);
+    document.addEventListener(
+      "visibilitychange",
+      handleVisibilityChange,
+    );
+    compactViewportQuery.addEventListener(
+      "change",
+      handleResize,
+    );
+
     return () => {
-      scope.revert();
+      revealObserver.disconnect();
+      continuousObserver.disconnect();
+      mutationObserver.disconnect();
+      cancelAnimationFrame(animationFrame);
+
+      if (scrollListening) {
+        window.removeEventListener(
+          "scroll",
+          queueDepthUpdate,
+        );
+      }
+
+      window.removeEventListener(
+        "resize",
+        handleResize,
+      );
+      document.removeEventListener(
+        "visibilitychange",
+        handleVisibilityChange,
+      );
+      compactViewportQuery.removeEventListener(
+        "change",
+        handleResize,
+      );
+
+      resetContinuousStyles();
     };
   }, [pathname]);
 
