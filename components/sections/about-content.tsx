@@ -1,11 +1,11 @@
-import Link from "next/link";
-
 import {
   aboutBuildAreas,
   aboutInterests,
   aboutPrinciples,
   developmentPhilosophy,
 } from "@/data";
+
+import { AboutExperience } from "./about-experience";
 
 const sectionHeadingClass =
   "text-balance text-heading font-semibold text-foreground";
@@ -161,51 +161,7 @@ export function AboutContent() {
         </div>
       </section>
 
-      <section
-        aria-labelledby="about-experience-title"
-        className="site-container section-space"
-      >
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:gap-20">
-          <div>
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
-              Experience
-            </p>
-            <h2
-              id="about-experience-title"
-              className={`mt-4 ${sectionHeadingClass}`}
-            >
-              Building across layers changed how I see the whole system.
-            </h2>
-          </div>
-
-          <div className="max-w-2xl">
-            <p className="text-body-lg text-muted-foreground">
-              Working across frameworks, APIs, frontend applications, databases,
-              deployment, and operational software has made me value explicit
-              boundaries and predictable conventions.
-            </p>
-
-            <p className="mt-6 text-body text-muted-foreground">
-              The detailed progression of that work belongs in the experience
-              story itself. This page keeps the focus on the way those
-              experiences shape how I approach engineering today.
-            </p>
-
-            <Link
-              href="/projects"
-              className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              See the work
-              <span
-                aria-hidden="true"
-                className="text-primary transition-transform duration-200 group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <AboutExperience />
 
       <section className="border-y border-border bg-surface-subtle">
         <div className="site-container section-space grid gap-12 lg:grid-cols-2 lg:gap-20">
