@@ -25,7 +25,7 @@ const initialSubmitState: SubmitState = {
 };
 
 const fieldClassName =
-  "mt-2 w-full border border-border bg-background/45 px-4 py-3 text-sm text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/35 focus:border-primary/55 focus:ring-1 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-60";
+  "mt-2 min-h-12 w-full border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/35 focus:border-primary/55 focus:ring-1 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm";
 
 function FieldError({
   id,
@@ -301,7 +301,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-1 inline-flex min-h-12 w-full items-center justify-between border border-border bg-foreground px-5 text-sm font-medium text-background transition-opacity disabled:cursor-wait disabled:opacity-60"
+          className="mt-1 inline-flex min-h-12 w-full touch-manipulation items-center justify-between border border-border bg-foreground px-5 text-sm font-medium text-background transition-opacity disabled:cursor-wait disabled:opacity-60"
         >
           <span>
             {isSubmitting ? "Sending…" : "Send Message"}
