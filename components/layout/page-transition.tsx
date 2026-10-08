@@ -36,6 +36,12 @@ export function PageTransition({
 
     const rootElement = root.current;
 
+    requestAnimationFrame(() => {
+      document
+        .getElementById("main-content")
+        ?.focus({ preventScroll: true });
+    });
+
     if (!rootElement) {
       return;
     }
