@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { additionalProjects } from "@/data";
 
 export function ProjectsAdditional() {
@@ -44,7 +46,12 @@ export function ProjectsAdditional() {
                         {project.category} · {project.status}
                       </p>
                       <h3 className="mt-2 text-heading font-medium text-foreground">
-                        {project.title}
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          {project.title}
+                        </Link>
                       </h3>
                     </div>
 
@@ -70,6 +77,19 @@ export function ProjectsAdditional() {
                       </li>
                     ))}
                   </ul>
+
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group mt-6 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    View case study
+                    <span
+                      aria-hidden="true"
+                      className="text-primary transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </Link>
                 </div>
               </article>
             ))}
