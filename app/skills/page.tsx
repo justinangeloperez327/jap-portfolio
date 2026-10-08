@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { SkillsMotion } from "@/components/motion";
 import {
   SkillsArchitecture,
   SkillsHero,
@@ -16,8 +17,10 @@ export default function SkillsPage() {
   return (
     <main className="bg-background text-foreground">
       <SkillsHero />
-      <SkillsIntroduction />
-      <SkillsArchitecture />
+      <SkillsMotion>
+        <SkillsIntroduction />
+        <SkillsArchitecture />
+      </SkillsMotion>
     </main>
   );
 }
