@@ -38,6 +38,8 @@ export function HomeHeroMotion({
       );
       const artworkLayer =
         rootElement.querySelector<HTMLElement>("[data-parallax-layer]");
+      const atmosphereLayer =
+        rootElement.querySelector<HTMLElement>("[data-atmosphere-layer]");
 
       if (reduceMotion) {
         utils.set(
@@ -204,49 +206,86 @@ export function HomeHeroMotion({
           860,
         );
 
-      if (!self.matches.finePointer || !artworkLayer) {
+      if (!artworkLayer) {
         return;
       }
 
       let animationFrame = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+      let scrollOffset = 0;
+
+      const renderDepth = () => {
+        const depth = Number(
+          artworkLayer.dataset.parallaxDepth ?? "1",
+        );
+
+        artworkLayer.style.transform =
+          `translate3d(${pointerX * depth}px, ${pointerY * depth + scrollOffset}px, 0) scale(1.012)`;
+
+        if (atmosphereLayer) {
+          atmosphereLayer.style.transform =
+            `translate3d(0, ${scrollOffset * 0.45}px, 0)`;
+        }
+      };
+
+      const queueDepthRender = () => {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(renderDepth);
+      };
 
       const applyPointerDepth = (event: PointerEvent) => {
-        cancelAnimationFrame(animationFrame);
+        const bounds = rootElement.getBoundingClientRect();
+        const normalizedX =
+          (event.clientX - bounds.left) / bounds.width - 0.5;
+        const normalizedY =
+          (event.clientY - bounds.top) / bounds.height - 0.5;
 
-        animationFrame = requestAnimationFrame(() => {
-          const bounds = rootElement.getBoundingClientRect();
-          const normalizedX =
-            (event.clientX - bounds.left) / bounds.width - 0.5;
-          const normalizedY =
-            (event.clientY - bounds.top) / bounds.height - 0.5;
+        pointerX = normalizedX * -10;
+        pointerY = normalizedY * -7;
 
-          const depth = Number(
-            artworkLayer.dataset.parallaxDepth ?? "1",
-          );
-
-          const x = normalizedX * -10 * depth;
-          const y = normalizedY * -7 * depth;
-
-          artworkLayer.style.transition =
-            "transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1)";
-          artworkLayer.style.transform =
-            `translate3d(${x}px, ${y}px, 0) scale(1.012)`;
-        });
+        artworkLayer.style.transition =
+          "transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1)";
+        queueDepthRender();
       };
 
       const resetPointerDepth = () => {
-        cancelAnimationFrame(animationFrame);
+        pointerX = 0;
+        pointerY = 0;
         artworkLayer.style.transition =
           "transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1)";
-        artworkLayer.style.transform =
-          "translate3d(0, 0, 0) scale(1)";
+        queueDepthRender();
       };
 
-      rootElement.addEventListener("pointermove", applyPointerDepth);
-      rootElement.addEventListener("pointerleave", resetPointerDepth);
+      const applyScrollDepth = () => {
+        const heroHeight = Math.max(rootElement.offsetHeight, 1);
+        const progress = Math.min(
+          Math.max(window.scrollY / heroHeight, 0),
+          1,
+        );
+
+        scrollOffset = progress * 18;
+        queueDepthRender();
+      };
+
+      if (self.matches.finePointer) {
+        rootElement.addEventListener(
+          "pointermove",
+          applyPointerDepth,
+        );
+        rootElement.addEventListener(
+          "pointerleave",
+          resetPointerDepth,
+        );
+      }
+
+      window.addEventListener("scroll", applyScrollDepth, {
+        passive: true,
+      });
 
       return () => {
         cancelAnimationFrame(animationFrame);
+
         rootElement.removeEventListener(
           "pointermove",
           applyPointerDepth,
@@ -255,8 +294,11 @@ export function HomeHeroMotion({
           "pointerleave",
           resetPointerDepth,
         );
+        window.removeEventListener("scroll", applyScrollDepth);
+
         artworkLayer.style.removeProperty("transition");
         artworkLayer.style.removeProperty("transform");
+        atmosphereLayer?.style.removeProperty("transform");
       };
     });
 
