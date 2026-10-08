@@ -17,7 +17,7 @@ export function ProjectsHero() {
       artwork={artwork.projects}
       priority
       overlay="left"
-      contentClassName="items-end pb-16 pt-28 sm:pb-20 lg:items-center lg:pb-24"
+      contentClassName="items-end pb-14 pt-28 sm:pb-18 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
       parallaxDepth={0.8}
     >
       <div className="max-w-4xl">
@@ -26,7 +26,7 @@ export function ProjectsHero() {
           label={projectsSection.label}
         />
 
-        <h1 className="mt-8 max-w-4xl text-balance text-hero font-semibold uppercase">
+        <h1 className="mt-7 max-w-4xl text-balance text-hero font-semibold uppercase sm:mt-8">
           Built to solve,
           <span className="block text-muted-foreground">
             designed to last.
