@@ -43,7 +43,7 @@ export function PageHero({
 
       <div
         className={cn(
-          "site-container layer-content relative flex min-h-[var(--hero-min-height)] items-center py-24",
+          "site-container layer-content relative flex min-h-[var(--hero-min-height)] w-full items-center py-20 sm:py-24 lg:py-28",
           contentClassName,
         )}
       >
