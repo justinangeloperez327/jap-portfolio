@@ -20,7 +20,7 @@ export function SkillsIntroduction() {
       className="site-container section-space"
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
-        <div className="max-w-xl">
+        <div data-skills-intro-copy className="max-w-xl">
           <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
             How I Use Technology
           </p>
@@ -42,7 +42,8 @@ export function SkillsIntroduction() {
           {principles.map((principle, index) => (
             <article
               key={principle.title}
-              className="grid gap-4 border-b border-border py-7 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
+              data-skills-principle
+              className="grid gap-4 border-b border-border py-7 transition-colors duration-200 hover:bg-surface-subtle/55 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
             >
               <span className="font-mono text-[0.625rem] text-muted-foreground/45">
                 {String(index + 1).padStart(2, "0")}
