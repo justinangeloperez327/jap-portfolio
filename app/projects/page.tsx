@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 
-import {
-  ProjectsAdditional,
-  ProjectsCatalogIntro,
-  ProjectsFeatured,
-  ProjectsHero,
-} from "@/components/sections";
+import { ProjectsCatalog } from "@/components/projects";
+import { ProjectsHero } from "@/components/sections";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,9 +13,7 @@ export default function ProjectsPage() {
   return (
     <main className="bg-background text-foreground">
       <ProjectsHero />
-      <ProjectsCatalogIntro />
-      <ProjectsFeatured />
-      <ProjectsAdditional />
+      <ProjectsCatalog />
     </main>
   );
 }
