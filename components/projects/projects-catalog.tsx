@@ -160,7 +160,7 @@ export function ProjectsCatalog() {
 
             <div
               aria-label="Filter projects by category"
-              className="mt-9 flex flex-wrap gap-x-5 gap-y-2 border-y border-border py-3"
+              className="mt-9 -mx-1 flex snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto border-y border-border px-1 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:gap-x-5 sm:gap-y-2 sm:overflow-visible sm:px-0"
             >
               {projectFilters.map((filter) => {
                 const active = activeFilter === filter;
@@ -172,7 +172,7 @@ export function ProjectsCatalog() {
                     aria-pressed={active}
                     onClick={() => setActiveFilter(filter)}
                     className={cn(
-                      "relative min-h-9 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      "relative min-h-11 shrink-0 snap-start touch-manipulation whitespace-nowrap px-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       active
                         ? "text-primary"
                         : "text-muted-foreground/55 hover:text-foreground",
