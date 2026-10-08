@@ -99,7 +99,7 @@ export function ContactPage() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noreferrer" : undefined}
-                    className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="group inline-flex min-h-11 touch-manipulation items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {link.label}
                     <span
@@ -123,7 +123,7 @@ export function ContactPage() {
           </div>
         </div>
 
-        <div className="border border-border/85 bg-background/60 p-5 shadow-2xl shadow-black/15 backdrop-blur-xl sm:p-7 lg:p-8">
+        <div className="border border-border/85 bg-background/70 p-4 sm:bg-background/60 sm:p-7 shadow-2xl shadow-black/15 backdrop-blur-xl lg:p-8">
           <div className="flex items-start justify-between gap-6 border-b border-border pb-5">
             <div>
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
