@@ -108,7 +108,7 @@ export function FeaturedProject({
             href="/projects"
             className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            Explore project catalog
+            Explore {project.title}
             <span
               aria-hidden="true"
               className="text-primary transition-transform duration-200 group-hover:translate-x-1"
