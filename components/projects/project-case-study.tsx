@@ -122,7 +122,7 @@ export function ProjectCaseStudyView({
         <div className="site-container py-10 sm:py-14 lg:py-20">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group inline-flex min-h-11 touch-manipulation items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
               aria-hidden="true"
@@ -177,7 +177,7 @@ export function ProjectCaseStudyView({
 
             <div
               data-scroll-depth="0.4"
-              className="relative aspect-[16/10] overflow-hidden border border-border bg-surface-subtle"
+              className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-subtle sm:aspect-[16/10]"
             >
               <CinematicMedia
                 src={project.image ?? undefined}
@@ -377,7 +377,7 @@ export function ProjectCaseStudyView({
 
         <Link
           href="/projects"
-          className="group mt-9 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group mt-8 inline-flex min-h-11 touch-manipulation items-center gap-3 text-sm font-medium sm:mt-9 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Back to all projects
           <span
