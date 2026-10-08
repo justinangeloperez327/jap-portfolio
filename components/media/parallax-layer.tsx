@@ -16,7 +16,7 @@ export function ParallaxLayer({
     <div
       data-parallax-layer
       data-parallax-depth={depth}
-      className={cn("will-change-transform", className)}
+      className={cn(className)}
       {...props}
     >
       {children}
