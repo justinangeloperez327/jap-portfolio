@@ -193,6 +193,11 @@ export function ScrollMotion({
           requestAnimationFrame(updateDepth);
       };
 
+      const handleResize = () => {
+        refreshContinuousTargets();
+        queueDepthUpdate();
+      };
+
       registerTree(rootElement);
       queueDepthUpdate();
 
@@ -222,7 +227,7 @@ export function ScrollMotion({
       );
       window.addEventListener(
         "resize",
-        queueDepthUpdate,
+        handleResize,
       );
 
       return () => {
@@ -236,7 +241,7 @@ export function ScrollMotion({
         );
         window.removeEventListener(
           "resize",
-          queueDepthUpdate,
+          handleResize,
         );
 
         depthTargets.forEach((target) => {
