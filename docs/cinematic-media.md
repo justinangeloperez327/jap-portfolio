@@ -6,7 +6,7 @@ The portfolio artwork layer is designed so final images can be added later witho
 
 - `PageHero` — full-height page hero frame
 - `CinematicBackground` — composes the complete artwork stack
-- `ImageLayer` — responsive `next/image` layer
+- `ImageLayer` — responsive `next/image` layer using the Next.js 16 `preload` API for LCP artwork
 - `ArtworkPlaceholder` — temporary skeleton while artwork is unavailable
 - `AtmosphereLayer` — low-opacity cyan/violet environmental depth
 - `GradientOverlay` — directional text-readability treatment
@@ -82,14 +82,14 @@ Use the overlay direction based on where readable content is placed, not as a de
 
 ## Parallax
 
-`ParallaxLayer` currently records a depth value through:
+`ParallaxLayer` records a depth value through:
 
 ```html
 data-parallax-layer
 data-parallax-depth
 ```
 
-Actual Anime.js behavior will be added in the dedicated motion groups.
+The Home hero consumes this value for its dedicated motion treatment. Other pages do not pay for a persistent compositor hint simply because they use the shared artwork wrapper.
 
 When `prefers-reduced-motion: reduce` is enabled, parallax transforms are explicitly disabled.
 
@@ -103,3 +103,15 @@ When the final page artwork is uploaded:
 4. Adjust only the focal-position values if necessary.
 
 No page layout or component changes should be required.
+
+## Delivery
+
+The shared image layer uses Next.js Image Optimization.
+
+- Hero/LCP artwork is preloaded through the Next.js 16 `preload` prop.
+- Non-critical project artwork remains lazy-loaded by default.
+- Responsive `sizes` prevent desktop-sized sources from being sent unnecessarily to narrow viewports.
+- `next.config.ts` enables AVIF and WebP output.
+- The configured device widths stop at 2560px to avoid generating unnecessary ultra-wide variants for the portfolio layout.
+
+Final source artwork should still be exported at sensible dimensions and compressed before upload. Image Optimization should not be used as a substitute for multi-megabyte source assets.
