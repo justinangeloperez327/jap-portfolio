@@ -113,7 +113,7 @@ export function ContactPage() {
                   <span
                     key={link.label}
                     aria-disabled="true"
-                    className="text-sm text-muted-foreground/35"
+                    className="text-sm text-muted-foreground/65"
                   >
                     {link.label}
                   </span>
