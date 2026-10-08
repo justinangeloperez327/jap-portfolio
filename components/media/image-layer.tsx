@@ -8,7 +8,7 @@ type ImageLayerProps = {
   src: string;
   alt: string;
   position: ResponsiveFocalPosition;
-  priority?: boolean;
+  preload?: boolean;
   sizes?: string;
   className?: string;
 };
@@ -23,7 +23,7 @@ export function ImageLayer({
   src,
   alt,
   position,
-  priority = false,
+  preload = false,
   sizes = "100vw",
   className,
 }: ImageLayerProps) {
@@ -39,8 +39,9 @@ export function ImageLayer({
       src={src}
       alt={alt}
       fill
-      priority={priority}
+      preload={preload}
       sizes={sizes}
+      decoding="async"
       style={style}
       className={cn(
         "cinematic-object-position object-cover",
