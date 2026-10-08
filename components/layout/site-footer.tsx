@@ -42,7 +42,7 @@ export function SiteFooter() {
                 <span
                   key={link.label}
                   aria-disabled="true"
-                  className="text-xs text-muted-foreground/35"
+                  className="text-xs text-muted-foreground/65"
                 >
                   {link.label}
                 </span>
