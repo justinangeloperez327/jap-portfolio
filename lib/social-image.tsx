@@ -7,7 +7,17 @@ export const socialImageSize = {
   height: 630,
 } as const;
 
-export function createSocialImage() {
+type SocialImageOptions = {
+  title?: string;
+  description?: string;
+  label?: string;
+};
+
+export function createSocialImage({
+  title = brand.title,
+  description = brand.description,
+  label = "Portfolio",
+}: SocialImageOptions = {}) {
   return new ImageResponse(
     (
       <div
@@ -78,7 +88,7 @@ export function createSocialImage() {
                 maxWidth: "900px",
               }}
             >
-              {brand.title}
+              {title}
             </div>
             <div
               style={{
@@ -89,7 +99,7 @@ export function createSocialImage() {
                 color: "rgba(245, 247, 250, 0.66)",
               }}
             >
-              {brand.description}
+              {description}
             </div>
           </div>
 
@@ -111,7 +121,7 @@ export function createSocialImage() {
                 background: "#8de3f7",
               }}
             />
-            Portfolio
+            {label}
           </div>
         </div>
       </div>
