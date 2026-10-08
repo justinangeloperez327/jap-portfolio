@@ -7,22 +7,22 @@ export default function Home() {
         alt="JAP Portfolio home artwork"
         label="Home artwork coming later"
         priority
-        className="absolute inset-0"
+        className="layer-background absolute inset-0"
       />
 
-      <div className="cinematic-overlay-left absolute inset-0" />
+      <div className="cinematic-overlay-left layer-atmosphere absolute inset-0" />
 
-      <section className="hero-height site-container relative z-20 flex items-center py-24">
+      <section className="hero-height site-container layer-content relative flex items-center py-24">
         <div className="reading-width">
-          <p className="mb-5 text-xs font-medium uppercase tracking-[0.35em] text-muted-foreground">
+          <p className="mb-5 text-label font-medium uppercase text-muted-foreground">
             Portfolio
           </p>
 
-          <h1 className="text-balance text-5xl font-semibold tracking-[-0.04em] sm:text-7xl">
+          <h1 className="text-balance text-hero font-semibold">
             Justin Angelo Perez
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
+          <p className="mt-6 max-w-xl text-body-lg text-muted-foreground">
             Building software, frameworks, and digital systems.
           </p>
         </div>
