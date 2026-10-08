@@ -133,7 +133,7 @@ export function ProjectCaseStudyView({
             All Projects
           </Link>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:gap-16">
+          <div className="mt-10 grid gap-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-end xl:gap-16">
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
@@ -183,7 +183,7 @@ export function ProjectCaseStudyView({
                 src={project.image ?? undefined}
                 alt={`${project.title} project artwork`}
                 label={`${project.title} case-study artwork coming later`}
-                sizes="(min-width: 1024px) 55vw, 100vw"
+                sizes="(min-width: 1280px) 55vw, 100vw"
                 position={project.imagePosition}
                 scrollZoom
                 className="absolute inset-0"
