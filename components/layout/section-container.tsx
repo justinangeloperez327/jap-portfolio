@@ -1,25 +1,19 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-type SectionContainerProps<T extends ElementType = "section"> = {
-  as?: T;
-  children: ReactNode;
-  className?: string;
+type SectionContainerProps = HTMLAttributes<HTMLElement> & {
   contained?: boolean;
-} & Omit<ComponentPropsWithoutRef<T>, "as" | "children" | "className">;
+};
 
-export function SectionContainer<T extends ElementType = "section">({
-  as,
+export function SectionContainer({
   children,
   className,
   contained = true,
   ...props
-}: SectionContainerProps<T>) {
-  const Component = as ?? "section";
-
+}: SectionContainerProps) {
   return (
-    <Component
+    <section
       className={cn(
         "section-space",
         contained && "site-container",
@@ -28,6 +22,6 @@ export function SectionContainer<T extends ElementType = "section">({
       {...props}
     >
       {children}
-    </Component>
+    </section>
   );
 }
