@@ -24,6 +24,7 @@ export function HomeHeroMotion({
       mediaQueries: {
         reduceMotion: "(prefers-reduced-motion: reduce)",
         finePointer: "(pointer: fine)",
+        compactViewport: "(max-width: 47.999rem)",
       },
     }).add((self) => {
       const reduceMotion = self.matches.reduceMotion;
@@ -279,9 +280,11 @@ export function HomeHeroMotion({
         );
       }
 
-      window.addEventListener("scroll", applyScrollDepth, {
-        passive: true,
-      });
+      if (!self.matches.compactViewport) {
+        window.addEventListener("scroll", applyScrollDepth, {
+          passive: true,
+        });
+      }
 
       return () => {
         cancelAnimationFrame(animationFrame);
