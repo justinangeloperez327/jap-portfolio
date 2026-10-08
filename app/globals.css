@@ -107,10 +107,10 @@
   --font-mono:
     "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 
-  --text-hero: clamp(3.5rem, 8vw, 7.5rem);
+  --text-hero: clamp(3.25rem, 8vw, 7.5rem);
   --text-hero--line-height: 0.92;
   --text-hero--letter-spacing: -0.055em;
-  --text-display: clamp(2.75rem, 5.5vw, 5rem);
+  --text-display: clamp(2.5rem, 5.5vw, 5rem);
   --text-display--line-height: 0.98;
   --text-display--letter-spacing: -0.045em;
   --text-heading: clamp(1.75rem, 3vw, 2.75rem);
