@@ -70,7 +70,7 @@ export function HomeProjectsPreview() {
                 <div
                   className={cn(
                     "relative aspect-[16/10] overflow-hidden border border-border bg-surface-subtle",
-                    contentOnRight && "lg:order-1",
+                    contentOnRight ? "lg:order-1" : "lg:order-2",
                   )}
                 >
                   <CinematicMedia
