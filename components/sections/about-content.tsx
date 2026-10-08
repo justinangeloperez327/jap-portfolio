@@ -14,6 +14,7 @@ export function AboutContent() {
   return (
     <div className="bg-background">
       <section
+        data-scroll-reveal
         aria-labelledby="about-introduction-title"
         className="site-container section-space"
       >
@@ -48,6 +49,7 @@ export function AboutContent() {
       </section>
 
       <section
+        data-scroll-reveal
         aria-labelledby="about-background-title"
         className="border-y border-border bg-surface-subtle"
       >
@@ -84,6 +86,7 @@ export function AboutContent() {
       </section>
 
       <section
+        data-scroll-reveal
         aria-labelledby="about-thinking-title"
         className="site-container section-space"
       >
@@ -124,6 +127,7 @@ export function AboutContent() {
       </section>
 
       <section
+        data-scroll-reveal
         aria-labelledby="about-build-title"
         className="border-y border-border bg-surface-subtle"
       >
@@ -208,6 +212,7 @@ export function AboutContent() {
       </section>
 
       <section
+        data-scroll-reveal
         aria-labelledby="about-philosophy-title"
         className="site-container section-space"
       >
