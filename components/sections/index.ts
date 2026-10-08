@@ -7,5 +7,6 @@ export { HomeHero } from "./home-hero";
 export { HomeProjectsPreview } from "./home-projects-preview";
 export { HomeSkillsPreview } from "./home-skills-preview";
 export { SectionLabel } from "./section-label";
+export { SkillsArchitecture } from "./skills-architecture";
 export { SkillsHero } from "./skills-hero";
 export { SkillsIntroduction } from "./skills-introduction";
