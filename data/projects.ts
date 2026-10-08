@@ -4,9 +4,9 @@ export const projects = [
   {
     slug: "berserk",
     title: "Berserk",
-    subtitle: "Rust · Web Framework",
+    subtitle: "Rust · Laravel-Inspired Framework",
     description:
-      "A Laravel-inspired Rust web framework focused on expressive developer experience, strong performance, and practical full-stack conventions.",
+      "A web framework exploring how Laravel-like developer experience can translate into Rust without giving up type safety, performance, or explicit architecture.",
     category: "Frameworks",
     technologies: ["Rust", "ORM", "Validation", "SQL"],
     image: null,
@@ -25,9 +25,9 @@ export const projects = [
   {
     slug: "gungnir",
     title: "Gungnir",
-    subtitle: "C++ · Web Framework",
+    subtitle: "C++ · Expressive Web Framework",
     description:
-      "An expressive C++ web framework designed around approachable conventions, coroutine-based async workflows, and production-oriented architecture.",
+      "An expressive C++ web framework built around approachable conventions, coroutine-based async workflows, and framework-level tooling that makes modern C++ web development easier to reason about.",
     category: "Frameworks",
     technologies: ["C++", "co_await", "Compiler", "HTTP"],
     image: null,
@@ -46,9 +46,9 @@ export const projects = [
   {
     slug: "densleaf",
     title: "Densleaf",
-    subtitle: "Rust · Language Experiment",
+    subtitle: "Rust · Experimental Language",
     description:
-      "An experimental programming language project exploring framework-aware grammar, compiler structure, and a cleaner application-development syntax.",
+      "An experimental Rust-based language exploring framework-aware grammar, compiler structure, and a more direct syntax for defining application concepts.",
     category: "Languages",
     technologies: ["Rust", "Lexer", "Parser", "AST"],
     image: null,
@@ -67,9 +67,9 @@ export const projects = [
   {
     slug: "quagmire",
     title: "Quagmire",
-    subtitle: "Frontend · Framework Experiment",
+    subtitle: "Frontend · Simpler Developer Experience",
     description:
-      "A frontend framework experiment centered on a simpler mental model, approachable reactivity, and a developer experience that stays lightweight.",
+      "A frontend framework experiment focused on reducing mental overhead through approachable reactivity, clearer conventions, and a lightweight developer experience.",
     category: "Frontend",
     technologies: ["Frontend", "Reactivity", "DX", "Compiler"],
     image: null,
