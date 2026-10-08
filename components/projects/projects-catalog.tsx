@@ -67,7 +67,7 @@ function ProjectCatalogRow({
             <h3 className="mt-2 text-heading font-medium text-foreground">
               <Link
                 href={`/projects/${project.slug}`}
-                className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex min-h-11 touch-manipulation items-center transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {project.title}
               </Link>
@@ -99,7 +99,7 @@ function ProjectCatalogRow({
 
         <Link
           href={`/projects/${project.slug}`}
-          className="group mt-6 inline-flex items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group mt-5 inline-flex min-h-11 touch-manipulation items-center gap-3 text-sm font-medium sm:mt-6 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           View case study
           <span
