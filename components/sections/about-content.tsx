@@ -44,9 +44,9 @@ export function AboutContent() {
               behavior, structure, and trade-offs clear enough that the work
               can keep evolving without becoming difficult to reason about.
             </p>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
 
       <section
         data-scroll-reveal
@@ -109,7 +109,7 @@ export function AboutContent() {
                 key={principle.title}
                 className="grid gap-4 border-b border-border py-7 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
               >
-                <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -150,7 +150,7 @@ export function AboutContent() {
                 key={area.title}
                 className="border-b border-border py-7 md:min-h-44 md:px-8 md:odd:border-r md:odd:pl-0 md:even:pr-0"
               >
-                <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 text-heading font-medium">
@@ -167,9 +167,9 @@ export function AboutContent() {
 
       <AboutExperience />
 
-      <section className="border-y border-border bg-surface-subtle">
+      <div className="border-y border-border bg-surface-subtle">
         <div className="site-container section-space grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div aria-labelledby="about-education-title">
+          <section aria-labelledby="about-education-title">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               Education
             </p>
@@ -184,9 +184,9 @@ export function AboutContent() {
               and systems gave me the vocabulary to keep learning beyond any
               one language, framework, or platform.
             </p>
-          </div>
+          </section>
 
-          <div aria-labelledby="about-interests-title">
+          <section aria-labelledby="about-interests-title">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               Interests
             </p>
