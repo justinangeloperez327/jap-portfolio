@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import type { ResponsiveFocalPosition } from "@/types";
 
 import { ArtworkPlaceholder } from "./artwork-placeholder";
 import { ImageLayer } from "./image-layer";
@@ -9,6 +10,7 @@ type CinematicMediaProps = {
   label?: string;
   priority?: boolean;
   sizes?: string;
+  position?: ResponsiveFocalPosition;
   className?: string;
   imageClassName?: string;
 };
@@ -19,6 +21,11 @@ export function CinematicMedia({
   label = "Artwork placeholder",
   priority = false,
   sizes = "100vw",
+  position = {
+    mobile: "center",
+    tablet: "center",
+    desktop: "center",
+  },
   className,
   imageClassName,
 }: CinematicMediaProps) {
@@ -33,11 +40,7 @@ export function CinematicMedia({
         <ImageLayer
           src={src}
           alt={alt}
-          position={{
-            mobile: "center",
-            tablet: "center",
-            desktop: "center",
-          }}
+          position={position}
           priority={priority}
           sizes={sizes}
           className={imageClassName}
