@@ -5,15 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { siteNav } from "@/data";
+import { isActiveRoute } from "@/lib/routes";
 import { cn } from "@/lib/utils";
-
-function isActiveRoute(pathname: string, href: string) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 export function MobileNavigation() {
   const pathname = usePathname();
@@ -76,6 +69,9 @@ export function MobileNavigation() {
 
       <div
         id="mobile-navigation"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
         className={cn(
           "fixed inset-0 z-[65] bg-background/96 backdrop-blur-xl transition-[opacity,visibility] duration-200",
           open
