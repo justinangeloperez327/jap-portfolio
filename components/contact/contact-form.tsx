@@ -25,7 +25,7 @@ const initialSubmitState: SubmitState = {
 };
 
 const fieldClassName =
-  "mt-2 min-h-12 w-full border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/35 focus:border-primary/55 focus:ring-1 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm";
+  "mt-2 min-h-12 w-full border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/70 focus:border-primary/55 focus:ring-1 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm";
 
 function FieldError({
   id,
@@ -166,6 +166,7 @@ export function ContactForm() {
     <form
       ref={formRef}
       aria-label="Contact form"
+      aria-busy={isSubmitting}
       className="mt-6"
       noValidate
       onSubmit={handleSubmit}
@@ -301,7 +302,7 @@ export function ContactForm() {
           />
           <p
             id="contact-message-hint"
-            className="mt-2 text-xs leading-5 text-muted-foreground/45"
+            className="mt-2 text-xs leading-5 text-muted-foreground/70"
           >
             20–3,000 characters.
           </p>
@@ -359,7 +360,7 @@ export function ContactForm() {
             ? "text-destructive"
             : submitState.status === "success"
               ? "text-primary"
-              : "text-muted-foreground/55",
+              : "text-muted-foreground/70",
         )}
       >
         {submitState.message}
