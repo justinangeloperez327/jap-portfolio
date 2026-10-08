@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import {
   HomeAboutPreview,
   HomeContactPreview,
@@ -5,6 +7,17 @@ import {
   HomeProjectsPreview,
   HomeSkillsPreview,
 } from "@/components/sections";
+import { brand } from "@/data";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${brand.title} | ${brand.shortName}`,
+  },
+  description: brand.description,
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
