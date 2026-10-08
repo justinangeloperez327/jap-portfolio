@@ -5,6 +5,13 @@ export type {
 } from "./media";
 
 export type {
+  Project,
+  ProjectCategory,
+  ProjectContentSide,
+  ProjectStatus,
+} from "./project";
+
+export type {
   PortfolioSection,
   PortfolioSectionId,
   SiteNavItem,
