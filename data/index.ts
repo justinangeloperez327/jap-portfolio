@@ -11,6 +11,7 @@ export {
   professionalExperienceThemes,
 } from "./experience";
 export {
+  additionalProjects,
   featuredProjects,
   getProjectBySlug,
   projects,
