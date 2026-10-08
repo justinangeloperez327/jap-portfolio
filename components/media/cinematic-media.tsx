@@ -13,6 +13,7 @@ type CinematicMediaProps = {
   position?: ResponsiveFocalPosition;
   className?: string;
   imageClassName?: string;
+  scrollZoom?: boolean;
 };
 
 export function CinematicMedia({
@@ -28,9 +29,11 @@ export function CinematicMedia({
   },
   className,
   imageClassName,
+  scrollZoom = false,
 }: CinematicMediaProps) {
   return (
     <div
+      data-scroll-zoom={scrollZoom ? "true" : undefined}
       className={cn(
         "relative overflow-hidden bg-background",
         className,
