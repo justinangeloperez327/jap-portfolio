@@ -34,6 +34,7 @@ export function ScrollMotion({
       mediaQueries: {
         reduceMotion:
           "(prefers-reduced-motion: reduce)",
+        compactViewport: "(max-width: 47.999rem)",
       },
     }).add((self) => {
       if (self.matches.reduceMotion) {
@@ -46,6 +47,12 @@ export function ScrollMotion({
       let animationFrame = 0;
 
       const refreshContinuousTargets = () => {
+        if (self.matches.compactViewport) {
+          depthTargets = [];
+          zoomTargets = [];
+          return;
+        }
+
         depthTargets = Array.from(
           rootElement.querySelectorAll<HTMLElement>(
             "[data-scroll-depth]",
@@ -92,7 +99,7 @@ export function ScrollMotion({
 
         utils.set(target, {
           opacity: 0,
-          y: 18,
+          y: self.matches.compactViewport ? 10 : 18,
         });
 
         observer.observe(target);
