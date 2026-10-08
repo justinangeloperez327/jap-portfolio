@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { CinematicMedia } from "@/components/media";
@@ -23,7 +24,7 @@ function EditorialSection({
   id: string;
   label: string;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
   surface?: "default" | "subtle";
 }) {
   return (
