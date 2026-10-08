@@ -18,6 +18,12 @@ export type ContactErrors = Partial<
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function normalizeSingleLine(value: unknown) {
+  return typeof value === "string"
+    ? value.trim().replace(/\s+/g, " ")
+    : "";
+}
+
 export function normalizeContactPayload(
   value: unknown,
 ): ContactPayload {
@@ -27,18 +33,12 @@ export function normalizeContactPayload(
       : {};
 
   return {
-    name:
-      typeof payload.name === "string"
-        ? payload.name.trim()
-        : "",
+    name: normalizeSingleLine(payload.name),
     email:
       typeof payload.email === "string"
         ? payload.email.trim()
         : "",
-    subject:
-      typeof payload.subject === "string"
-        ? payload.subject.trim()
-        : "",
+    subject: normalizeSingleLine(payload.subject),
     message:
       typeof payload.message === "string"
         ? payload.message.trim()
