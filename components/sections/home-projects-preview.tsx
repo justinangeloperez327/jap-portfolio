@@ -22,12 +22,13 @@ export function HomeProjectsPreview() {
     >
       <div
         aria-hidden="true"
+        data-scroll-depth="0.65"
         className="pointer-events-none absolute -right-10 top-4 select-none font-mono text-[clamp(9rem,22vw,22rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.018]"
       >
         03
       </div>
 
-      <div className="site-container section-space relative">
+      <div data-scroll-reveal className="site-container section-space relative">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <SectionLabel
