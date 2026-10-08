@@ -44,11 +44,11 @@ export function HomeHero() {
               performance, and usable developer experience.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-9 grid gap-3 xs:grid-cols-2 sm:flex sm:flex-wrap sm:items-center">
               <Link
                 data-home-action
                 href="/projects"
-                className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-primary-foreground transition-[background-color,color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center sm:w-auto border border-primary bg-primary px-5 text-sm font-medium text-primary-foreground transition-[background-color,color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Explore Projects
                 <span aria-hidden="true" className="ml-2">
@@ -59,7 +59,7 @@ export function HomeHero() {
               <Link
                 data-home-action
                 href="/about"
-                className="inline-flex min-h-11 items-center justify-center border border-border bg-background/30 px-5 text-sm font-medium text-foreground backdrop-blur-md transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center sm:w-auto border border-border bg-background/30 px-5 text-sm font-medium text-foreground backdrop-blur-md transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 About Me
               </Link>
