@@ -6,6 +6,8 @@ export type {
 
 export type {
   Project,
+  ProjectCaseStudy,
+  ProjectCaseStudyPoint,
   ProjectCategory,
   ProjectContentSide,
   ProjectStatus,
