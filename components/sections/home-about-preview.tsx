@@ -27,12 +27,13 @@ export function HomeAboutPreview() {
     >
       <div
         aria-hidden="true"
+        data-scroll-depth="0.65"
         className="pointer-events-none absolute -right-10 top-4 select-none font-mono text-[clamp(9rem,22vw,22rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.018]"
       >
         01
       </div>
 
-      <div className="site-container section-space relative">
+      <div data-scroll-reveal className="site-container section-space relative">
         <SectionLabel
           number={aboutSection.number}
           label={aboutSection.label}
