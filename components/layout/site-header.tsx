@@ -7,7 +7,10 @@ import { MobileNavigation } from "./mobile-navigation";
 
 export function SiteHeader() {
   return (
-    <header className="layer-navigation pointer-events-none fixed inset-x-0 top-0">
+    <header
+      data-site-header
+      className="layer-navigation pointer-events-none fixed inset-x-0 top-0"
+    >
       <div className="site-container flex h-[var(--header-height)] items-center justify-between">
         <Link
           href="/"
