@@ -9,6 +9,7 @@ export function AtmosphereLayer({
 }: AtmosphereLayerProps) {
   return (
     <div
+      data-atmosphere-layer
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0",
