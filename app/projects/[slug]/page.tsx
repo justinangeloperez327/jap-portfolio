@@ -51,7 +51,11 @@ export default async function ProjectPage({
   const caseStudy = getProjectCaseStudy(project);
 
   return (
-    <main className="bg-background text-foreground">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="bg-background text-foreground outline-none"
+    >
       <ProjectCaseStudyView
         project={project}
         caseStudy={caseStudy}
