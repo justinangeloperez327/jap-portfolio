@@ -4,9 +4,11 @@ Motion is used to reinforce hierarchy and cinematic depth. It should not compete
 
 ## Engine
 
-The project uses Anime.js 4.
+Anime.js 4 is reserved for choreography that benefits from timelines and staggered sequencing, currently the Home hero and Skills page.
 
-React integrations use `createScope()` so animation instances and inline styles are reverted when their component unmounts.
+Global route transitions and shared scroll effects use the browser Web Animations API, IntersectionObserver, and requestAnimationFrame instead of importing Anime.js into the site-wide client boundary.
+
+Anime-powered React integrations use `createScope()` so animation instances and inline styles are reverted when their component unmounts.
 
 ## Home entrance sequence
 
@@ -29,8 +31,9 @@ The timing intentionally overlaps so the sequence feels continuous rather than l
 After the entrance sequence:
 
 - Fine-pointer devices receive a very small pointer parallax effect.
-- Scrolling shifts the artwork by no more than 18px across the hero.
+- On tablet/desktop, scrolling shifts the artwork by no more than 18px across the hero.
 - Atmosphere moves at a slower rate than the artwork.
+- Continuous Home hero scroll depth is disabled below 48rem.
 - No perpetual looping animation is used.
 
 ## Reduced motion
@@ -105,7 +108,7 @@ Elements marked with `data-scroll-reveal`:
 - Start 18px lower
 - Fade from transparent to full opacity
 - Animate once when roughly 8% of the element enters the viewport
-- Use a 620ms `out(3)` transition
+- Use a 620ms soft cubic-bezier transition equivalent to the established `out(3)` feel
 - Are unobserved after their first reveal
 
 A MutationObserver registers newly rendered opt-in content, including Projects catalog sections that change after filtering.
