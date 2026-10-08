@@ -36,7 +36,7 @@ export function AboutExperience() {
                 key={stage.phase}
                 className="grid gap-5 border-b border-border py-8 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
               >
-                <span className="font-mono text-xs text-primary">
+                <span aria-hidden="true" className="font-mono text-xs text-primary">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -97,7 +97,7 @@ export function AboutExperience() {
                     key={theme.title}
                     className="grid gap-4 border-b border-border py-6 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
                   >
-                    <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+                    <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
