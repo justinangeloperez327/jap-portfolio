@@ -132,6 +132,7 @@ export function ProjectsCatalog() {
   return (
     <>
       <section
+        data-scroll-reveal
         aria-labelledby="projects-catalog-title"
         className="site-container section-space"
       >
@@ -205,6 +206,7 @@ export function ProjectsCatalog() {
       {activeFilter === "All" ? (
         <>
           <section
+            data-scroll-reveal
             aria-labelledby="featured-projects-title"
             className="border-y border-border bg-surface-subtle"
           >
@@ -243,6 +245,7 @@ export function ProjectsCatalog() {
           </section>
 
           <section
+            data-scroll-reveal
             aria-labelledby="additional-projects-title"
             className="bg-background"
           >
@@ -282,6 +285,7 @@ export function ProjectsCatalog() {
         </>
       ) : (
         <section
+          data-scroll-reveal
           aria-labelledby="filtered-projects-title"
           className="border-y border-border bg-surface-subtle"
         >
