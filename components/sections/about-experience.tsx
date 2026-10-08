@@ -9,6 +9,7 @@ export function AboutExperience() {
   return (
     <>
       <section
+        data-scroll-reveal
         aria-labelledby="about-journey-title"
         className="site-container section-space"
       >
@@ -64,6 +65,7 @@ export function AboutExperience() {
       </section>
 
       <section
+        data-scroll-reveal
         aria-labelledby="about-experience-title"
         className="border-y border-border bg-surface-subtle"
       >
