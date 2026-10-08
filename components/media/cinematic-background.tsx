@@ -51,7 +51,7 @@ export function CinematicBackground({
             src={artwork.src}
             alt={artwork.alt}
             position={artwork.position}
-            priority={priority}
+            preload={priority}
             sizes={artwork.sizes}
             className={imageClassName}
           />
