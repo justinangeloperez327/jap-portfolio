@@ -4,14 +4,23 @@ import { cn } from "@/lib/utils";
 
 type BrandMarkProps = SVGProps<SVGSVGElement> & {
   className?: string;
+  title?: string;
 };
 
-export function BrandMark({ className, ...props }: BrandMarkProps) {
+export function BrandMark({
+  className,
+  title,
+  ...props
+}: BrandMarkProps) {
+  const labelled = Boolean(title);
+
   return (
     <svg
       viewBox="0 0 72 32"
-      role="img"
-      aria-label="JAP"
+      role={labelled ? "img" : undefined}
+      aria-label={title}
+      aria-hidden={labelled ? undefined : true}
+      focusable="false"
       className={cn("h-8 w-auto", className)}
       {...props}
     >
