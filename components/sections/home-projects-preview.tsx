@@ -1,9 +1,7 @@
 import Link from "next/link";
 
-import { FeaturedProject } from "@/components/projects";
+import { HomeProjectCard } from "@/components/projects";
 import { featuredProjects, portfolioSections } from "@/data";
-
-import { SectionLabel } from "./section-label";
 
 const projectsSection = portfolioSections.find(
   (section) => section.id === "projects",
@@ -18,56 +16,49 @@ export function HomeProjectsPreview() {
     <section
       id="projects-preview"
       aria-labelledby="projects-preview-title"
-      className="relative isolate overflow-hidden border-t border-border/70 bg-background"
+      className="relative z-30 -mt-20 pb-10 sm:-mt-24 lg:-mt-28"
     >
-      <div
-        aria-hidden="true"
-        data-scroll-depth="0.65"
-        className="pointer-events-none absolute -right-10 top-4 select-none font-mono text-[clamp(9rem,22vw,22rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.018]"
-      >
-        03
-      </div>
+      <div className="site-container">
+        <div className="glass-surface rounded-2xl p-4 sm:p-5 lg:p-6">
+          <div className="flex flex-col gap-5 border-b border-border/70 pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
+                Featured Projects
+              </p>
+              <h2
+                id="projects-preview-title"
+                className="mt-2 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl"
+              >
+                A few things I&apos;ve built.
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Frameworks, developer tools, and product systems.
+              </p>
+            </div>
 
-      <div data-scroll-reveal className="site-container section-space relative">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <SectionLabel
-              number={projectsSection.number}
-              label={projectsSection.label}
-            />
-
-            <h2
-              id="projects-preview-title"
-              className="mt-10 max-w-3xl text-balance text-display font-semibold"
+            <Link
+              href={projectsSection.href}
+              className="group inline-flex min-h-11 shrink-0 items-center gap-3 rounded-xl border border-border/80 bg-background/30 px-4 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Frameworks and systems built from first principles.
-            </h2>
+              View All Projects
+              <span
+                aria-hidden="true"
+                className="text-primary transition-transform duration-200 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
           </div>
 
-          <Link
-            href={projectsSection.href}
-            className="group inline-flex shrink-0 items-center gap-3 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            View All Projects
-            <span
-              aria-hidden="true"
-              className="text-primary transition-transform duration-200 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
-        </div>
-
-        <div className="mt-16 border-t border-border">
-          {featuredProjects.map((project, index) => (
-            <FeaturedProject
-              key={project.slug}
-              project={project}
-              index={index}
-              surface="subtle"
-              showProjectLink
-            />
-          ))}
+          <div className="mt-5 grid gap-4 lg:grid-cols-3">
+            {featuredProjects.slice(0, 3).map((project, index) => (
+              <HomeProjectCard
+                key={project.slug}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
