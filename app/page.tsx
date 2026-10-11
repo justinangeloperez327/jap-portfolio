@@ -27,9 +27,9 @@ export default function Home() {
       className="bg-background text-foreground outline-none"
     >
       <HomeHero />
+      <HomeProjectsPreview />
       <HomeAboutPreview />
       <HomeSkillsPreview />
-      <HomeProjectsPreview />
       <HomeContactPreview />
     </main>
   );
