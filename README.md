@@ -1,6 +1,6 @@
 # JAP Portfolio
 
-Personal portfolio built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, Anime.js, and Kokonut UI.
+Personal portfolio built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, and Anime.js.
 
 ## Development
 
@@ -16,12 +16,7 @@ Open http://localhost:3000.
 - Next.js App Router
 - TypeScript
 - Tailwind CSS v4
-- shadcn/ui
+- shadcn/ui — Nova style
 - Anime.js
-- Kokonut UI registry
 
-Kokonut UI components can be installed through the configured shadcn registry, for example:
-
-```bash
-npx shadcn@latest add @kokonutui/particle-button
-```
+The visual system is custom: cinematic Tokyo-night artwork, restrained neon accents, translucent glass surfaces, and project-focused editorial layouts. shadcn provides the component foundation; the portfolio does not depend on an additional UI registry.
