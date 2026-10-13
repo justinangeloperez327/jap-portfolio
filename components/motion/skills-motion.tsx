@@ -61,7 +61,7 @@ export function SkillsMotion({
         ),
       ].filter(Boolean) as HTMLElement[];
 
-      if (matches?.reduceMotion) {
+      if (matches?.reduceMotion || typeof IntersectionObserver === "undefined") {
         utils.set(allTargets, {
           opacity: 1,
           x: 0,
