@@ -126,14 +126,14 @@ export function ProjectCaseStudyView({
           >
             <span
               aria-hidden="true"
-              className="text-primary transition-transform duration-200 group-hover:-translate-x-1"
+              className="text-primary transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none group-hover:-translate-x-1"
             >
               ←
             </span>
             All Projects
           </Link>
 
-          <div className="mt-10 grid gap-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-end xl:gap-16">
+          <div className="mt-8 grid min-w-0 gap-8 sm:mt-10 sm:gap-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-end xl:gap-16">
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
@@ -148,7 +148,7 @@ export function ProjectCaseStudyView({
                 </p>
               </div>
 
-              <h1 className="mt-6 text-balance text-hero font-semibold">
+              <h1 className="mt-6 break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold">
                 {project.title}
               </h1>
 
