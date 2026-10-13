@@ -15,7 +15,7 @@ export function ProjectsHero() {
   return (
     <PageHero
       sceneLabel="Tokyo night / Projects"
-      contentClassName="items-end pb-14 pt-28 sm:pb-18 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
+      contentClassName="items-end pb-14 pt-28 sm:pb-20 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
     >
       <div className="max-w-4xl">
         <SectionLabel
@@ -23,7 +23,7 @@ export function ProjectsHero() {
           label={projectsSection.label}
         />
 
-        <h1 className="mt-7 max-w-4xl text-balance text-hero font-semibold uppercase sm:mt-8">
+        <h1 className="mt-7 max-w-4xl break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold uppercase sm:mt-8">
           Built to solve,
           <span className="block text-muted-foreground">
             designed to last.
