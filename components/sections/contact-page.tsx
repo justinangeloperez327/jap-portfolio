@@ -47,7 +47,7 @@ export function ContactPage() {
           </p>
 
           <div className="mt-10 border-y border-border/80 bg-background/20 px-5 py-6 backdrop-blur-sm">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[#ef4444]">
               Good fit
             </p>
 
@@ -94,12 +94,12 @@ export function ContactPage() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noreferrer" : undefined}
-                    className="group inline-flex min-h-11 touch-manipulation items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="group inline-flex min-h-11 touch-manipulation items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-[#ef4444] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {link.label}
                     <span
                       aria-hidden="true"
-                      className="text-primary/70 transition-transform duration-200 group-hover:translate-x-0.5"
+                      className="text-[#ef4444]/70 transition-transform duration-200 group-hover:translate-x-0.5"
                     >
                       {link.external ? "↗" : "→"}
                     </span>
@@ -121,7 +121,7 @@ export function ContactPage() {
         <div className="border border-border/85 bg-background/70 p-4 sm:bg-background/60 sm:p-7 shadow-2xl shadow-black/15 backdrop-blur-xl lg:p-8">
           <div className="flex items-start justify-between gap-6 border-b border-border pb-5">
             <div>
-              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[#ef4444]">
                 Send a message
               </p>
               <h2 className="mt-2 text-heading font-semibold">
@@ -131,7 +131,7 @@ export function ContactPage() {
 
             <span
               aria-hidden="true"
-              className="mt-1 size-2 border border-primary/60"
+              className="mt-1 size-2 border border-[#dc2626]/60"
             />
           </div>
 
