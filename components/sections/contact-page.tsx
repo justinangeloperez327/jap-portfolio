@@ -13,7 +13,6 @@ const contactSection = portfolioSections.find(
   (section) => section.id === "contact",
 );
 
-
 export function ContactPage() {
   if (!contactSection) {
     return null;
@@ -24,16 +23,16 @@ export function ContactPage() {
   return (
     <PageHero
       className="min-h-screen"
-      contentClassName="items-start pb-14 pt-28 sm:pb-18 sm:pt-32 xl:items-center xl:py-28"
+      contentClassName="items-start pb-14 pt-28 sm:pb-20 sm:pt-32 xl:items-center xl:py-28"
     >
-      <div className="grid w-full gap-12 xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,0.85fr)] xl:gap-20 2xl:gap-24">
+      <div className="grid w-full min-w-0 gap-8 sm:gap-12 xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,0.85fr)] xl:gap-20 2xl:gap-24">
         <div className="max-w-2xl">
           <SectionLabel
             number={contactSection.number}
             label={contactSection.label}
           />
 
-          <h1 className="mt-8 max-w-3xl text-balance text-hero font-semibold">
+          <h1 className="mt-8 max-w-3xl break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold">
             Have something worth building?
             <span className="block text-muted-foreground">
               Let&apos;s talk.
@@ -118,7 +117,7 @@ export function ContactPage() {
           </div>
         </div>
 
-        <div className="border border-border/85 bg-background/70 p-4 sm:bg-background/60 sm:p-7 shadow-2xl shadow-black/15 backdrop-blur-xl lg:p-8">
+        <div className="border border-border/85 bg-background/70 p-4 sm:bg-background/60 sm:p-7 backdrop-blur-xl lg:p-8">
           <div className="flex items-start justify-between gap-6 border-b border-border pb-5">
             <div>
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
