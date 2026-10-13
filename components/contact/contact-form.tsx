@@ -25,7 +25,7 @@ const initialSubmitState: SubmitState = {
 };
 
 const fieldClassName =
-  "mt-2 min-h-12 w-full border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/70 focus:border-primary/55 focus:ring-1 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm";
+  "mt-2 min-h-12 w-full border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/70 focus:border-primary/70 focus:ring-1 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:text-sm";
 
 function FieldError({
   id,
@@ -331,7 +331,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-1 inline-flex min-h-12 w-full touch-manipulation items-center justify-between border border-border bg-foreground px-5 text-sm font-medium text-background transition-opacity disabled:cursor-wait disabled:opacity-60"
+          className="mt-1 inline-flex min-h-12 w-full touch-manipulation items-center justify-between border border-primary bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none disabled:cursor-wait disabled:opacity-60"
         >
           <span>
             {isSubmitting ? "Sending…" : "Send Message"}
