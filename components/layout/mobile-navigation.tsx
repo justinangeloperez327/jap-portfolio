@@ -197,7 +197,7 @@ export function MobileNavigation() {
                       className={cn(
                         "shrink-0 font-mono text-xs tracking-[0.18em]",
                         active
-                          ? "text-[#ef4444]"
+                          ? "text-primary"
                           : "text-muted-foreground/50",
                       )}
                     >
