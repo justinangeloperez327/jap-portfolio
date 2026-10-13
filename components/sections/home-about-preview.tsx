@@ -88,7 +88,7 @@ export function HomeAboutPreview() {
               More About Me
               <span
                 aria-hidden="true"
-                className="text-primary transition-transform duration-200 group-hover:translate-x-1"
+                className="text-[#ef4444] transition-transform duration-200 group-hover:translate-x-1"
               >
                 →
               </span>
