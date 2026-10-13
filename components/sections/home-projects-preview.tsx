@@ -38,7 +38,7 @@ export function HomeProjectsPreview() {
 
             <Link
               href={projectsSection.href}
-              className="group inline-flex min-h-11 shrink-0 items-center gap-3 border border-border/80 bg-background/30 px-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group inline-flex min-h-11 shrink-0 items-center gap-3 border border-border/80 bg-background/30 px-4 text-sm font-medium text-foreground transition-colors motion-reduce:transition-none hover:border-primary/60 hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               View All Projects
               <span
@@ -50,7 +50,7 @@ export function HomeProjectsPreview() {
             </Link>
           </div>
 
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featuredProjects.slice(0, 3).map((project, index) => (
               <HomeProjectCard
                 key={project.slug}
