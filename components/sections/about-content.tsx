@@ -18,7 +18,7 @@ export function AboutContent() {
         aria-labelledby="about-introduction-title"
         className="site-container section-space"
       >
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
           <div>
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               Introduction
@@ -54,7 +54,7 @@ export function AboutContent() {
         className="border-y border-border bg-surface-subtle"
       >
         <div className="site-container section-space">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
             <div>
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
                 Background
@@ -90,7 +90,7 @@ export function AboutContent() {
         aria-labelledby="about-thinking-title"
         className="site-container section-space"
       >
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:gap-20">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:gap-20">
           <div>
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               How I Think
@@ -144,7 +144,7 @@ export function AboutContent() {
             </h2>
           </div>
 
-          <div className="mt-12 grid border-t border-border md:grid-cols-2">
+          <div className="mt-8 grid border-t sm:mt-12 border-border md:grid-cols-2">
             {aboutBuildAreas.map((area, index) => (
               <article
                 key={area.title}
@@ -168,7 +168,7 @@ export function AboutContent() {
       <AboutExperience />
 
       <div className="border-y border-border bg-surface-subtle">
-        <div className="site-container section-space grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="site-container section-space grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
           <section aria-labelledby="about-education-title">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
               Education
@@ -228,7 +228,7 @@ export function AboutContent() {
           </h2>
         </div>
 
-        <ol className="mt-12 border-t border-border">
+        <ol className="mt-8 border-t sm:mt-12 border-border">
           {developmentPhilosophy.map((item, index) => (
             <li
               key={item}
