@@ -11,7 +11,7 @@ export function HomeProjectCard({ project, index }: HomeProjectCardProps) {
   return (
     <article
       data-scroll-reveal
-      className="group flex rounded-xl min-h-[16rem] sm:min-h-[18rem] flex-col border border-border/80 bg-surface-subtle p-5 transition-[border-color,background-color] duration-200 motion-reduce:transition-none hover:border-primary/65 hover:bg-surface-raised sm:p-6"
+      className="group flex rounded-xl min-h-[16rem] sm:min-h-[18rem] flex-col border border-glass-border bg-glass backdrop-blur-md shadow-lg shadow-black/10 p-5 transition-[border-color,background-color] duration-200 motion-reduce:transition-none hover:border-primary/65 hover:bg-surface-raised/70 sm:p-6"
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <p className="font-mono text-[0.625rem] uppercase tracking-[0.14em] text-primary">
