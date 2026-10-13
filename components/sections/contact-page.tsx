@@ -117,7 +117,7 @@ export function ContactPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-border/85 bg-background/70 p-4 sm:bg-background/60 sm:p-7 backdrop-blur-xl lg:p-8">
+        <div className="rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 p-4 sm:p-7 backdrop-blur-md lg:p-8">
           <div className="flex items-start justify-between gap-6 border-b border-border pb-5">
             <div>
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-primary">
