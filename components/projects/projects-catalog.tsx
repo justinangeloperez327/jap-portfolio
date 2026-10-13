@@ -51,7 +51,7 @@ function ProjectCatalogRow({
 }) {
   return (
     <article
-      className="grid gap-5 border-b border-border py-7 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
+      className="grid min-w-0 gap-3 border-b border-border py-6 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-7"
     >
       <span aria-hidden="true" className="font-mono text-xs text-primary">
         {String(index + 1).padStart(2, "0")}
@@ -67,7 +67,7 @@ function ProjectCatalogRow({
             <h3 className="mt-2 text-heading font-medium text-foreground">
               <Link
                 href={`/projects/${project.slug}`}
-                className="inline-flex min-h-11 touch-manipulation items-center transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex min-h-11 max-w-full break-words touch-manipulation items-center transition-colors motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {project.title}
               </Link>
@@ -104,7 +104,7 @@ function ProjectCatalogRow({
           View case study
           <span
             aria-hidden="true"
-            className="text-primary transition-transform duration-200 group-hover:translate-x-1"
+            className="text-primary transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none group-hover:translate-x-1"
           >
             →
           </span>
@@ -173,7 +173,7 @@ export function ProjectsCatalog() {
                     aria-pressed={active}
                     onClick={() => setActiveFilter(filter)}
                     className={cn(
-                      "relative min-h-11 shrink-0 snap-start touch-manipulation whitespace-nowrap px-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      "relative min-h-11 shrink-0 snap-start touch-manipulation whitespace-nowrap px-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       active
                         ? "text-primary"
                         : "text-muted-foreground/70 hover:text-foreground",
@@ -183,7 +183,7 @@ export function ProjectsCatalog() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "absolute inset-x-0 -bottom-3 h-px origin-left bg-primary transition-transform duration-200",
+                        "absolute inset-x-0 -bottom-3 h-px origin-left bg-primary transition-transform duration-200 motion-reduce:transition-none",
                         active ? "scale-x-100" : "scale-x-0",
                       )}
                     />
