@@ -11,19 +11,19 @@ export function HomeProjectCard({ project, index }: HomeProjectCardProps) {
   return (
     <article
       data-scroll-reveal
-      className="group flex min-h-[18rem] flex-col border border-border/80 bg-surface-subtle p-5 transition-[border-color,background-color] duration-200 hover:border-primary/65 hover:bg-surface-raised sm:p-6"
+      className="group flex min-h-[16rem] sm:min-h-[18rem] flex-col border border-border/80 bg-surface-subtle p-5 transition-[border-color,background-color] duration-200 motion-reduce:transition-none hover:border-primary/65 hover:bg-surface-raised sm:p-6"
     >
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-2">
         <p className="font-mono text-[0.625rem] uppercase tracking-[0.14em] text-primary">
           {String(index + 1).padStart(2, "0")} / {project.category}
         </p>
-        <span className="font-mono text-[0.625rem] text-muted-foreground/60">{project.status}</span>
+        <span className="font-mono text-[0.625rem] text-muted-foreground/75">{project.status}</span>
       </div>
 
       <h3 className="mt-7 text-xl font-semibold tracking-[-0.03em]">
         <Link
           href={`/projects/${project.slug}`}
-          className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="transition-colors motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {project.title} <span aria-hidden="true" className="text-primary">↗</span>
         </Link>
