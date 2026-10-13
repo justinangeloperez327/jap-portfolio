@@ -31,7 +31,7 @@ export function ScrollMotion({
       "(prefers-reduced-motion: reduce)",
     );
 
-    if (reduceMotionQuery.matches) {
+    if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) {
       return;
     }
 
