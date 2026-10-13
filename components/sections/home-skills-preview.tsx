@@ -33,7 +33,7 @@ export function HomeSkillsPreview() {
           label={skillsSection.label}
         />
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+        <div className="mt-8 grid gap-8 sm:mt-12 sm:gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
           <div className="max-w-xl">
             <h2
               id="skills-preview-title"
@@ -54,7 +54,7 @@ export function HomeSkillsPreview() {
               Explore My Skills
               <span
                 aria-hidden="true"
-                className="text-[#ef4444] transition-transform duration-200 group-hover:translate-x-1"
+                className="text-primary transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none group-hover:translate-x-1"
               >
                 →
               </span>
@@ -65,7 +65,7 @@ export function HomeSkillsPreview() {
             {skillCategories.map((category, index) => (
               <article
                 key={category.label}
-                className="grid gap-4 border-b border-border py-6 sm:grid-cols-[2.25rem_minmax(0,0.75fr)_minmax(0,1.25fr)] sm:items-start sm:gap-6"
+                className="grid gap-4 border-b border-border py-6 md:grid-cols-[2.25rem_minmax(0,0.75fr)_minmax(0,1.25fr)] sm:items-start sm:gap-6"
               >
                 <span className="font-mono text-[0.625rem] text-muted-foreground/45">
                   {String(index + 1).padStart(2, "0")}
@@ -82,7 +82,7 @@ export function HomeSkillsPreview() {
 
                 <ul
                   aria-label={`${category.label} technologies`}
-                  className="flex flex-wrap gap-x-4 gap-y-2 sm:justify-end"
+                  className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end"
                 >
                   {category.technologies.map((technology) => (
                     <li
