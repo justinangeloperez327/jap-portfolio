@@ -30,7 +30,7 @@ export function createPageMetadata({
       siteName: brand.name,
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
     },

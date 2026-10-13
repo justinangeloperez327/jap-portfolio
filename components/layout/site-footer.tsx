@@ -16,7 +16,7 @@ export function SiteFooter() {
             aria-label="JAP Portfolio home"
             className="inline-flex text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <BrandMark aria-hidden="true" className="h-7" />
+            <BrandMark aria-hidden="true" className="text-lg" />
           </Link>
 
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">

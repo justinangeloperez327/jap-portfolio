@@ -2,7 +2,6 @@ import { ContactForm } from "@/components/contact";
 import { getPublicLinks } from "@/lib/public-links";
 import { PageHero } from "@/components/media";
 import {
-  artwork,
   contactFocusAreas,
   contactResponseNotes,
   portfolioSections,
@@ -24,12 +23,8 @@ export function ContactPage() {
 
   return (
     <PageHero
-      artwork={artwork.contact}
-      priority
-      overlay="left"
       className="min-h-screen"
       contentClassName="items-start pb-14 pt-28 sm:pb-18 sm:pt-32 xl:items-center xl:py-28"
-      parallaxDepth={0.7}
     >
       <div className="grid w-full gap-12 xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,0.85fr)] xl:gap-20 2xl:gap-24">
         <div className="max-w-2xl">

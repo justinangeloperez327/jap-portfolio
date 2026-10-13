@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-import { CinematicMedia } from "@/components/media";
+import { SceneSlot } from "@/components/media";
 import { cn } from "@/lib/utils";
 import type {
   Project,
@@ -179,18 +179,7 @@ export function ProjectCaseStudyView({
               data-scroll-depth="0.4"
               className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-subtle sm:aspect-[16/10]"
             >
-              <CinematicMedia
-                src={project.image ?? undefined}
-                alt={`${project.title} project artwork`}
-                label={`${project.title} case-study artwork coming later`}
-                sizes="(min-width: 1280px) 55vw, 100vw"
-                position={project.imagePosition}
-                scrollZoom
-                className="absolute inset-0"
-                imageClassName={cn(
-                  project.imageMirror && "-scale-x-100",
-                )}
-              />
+              <SceneSlot label={`${project.title} / Case study`} className="absolute inset-0" />
 
               <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between p-4">
                 <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground/50">

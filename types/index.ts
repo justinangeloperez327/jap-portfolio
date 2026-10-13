@@ -1,10 +1,4 @@
 export type {
-  CinematicArtwork,
-  CinematicOverlayDirection,
-  ResponsiveFocalPosition,
-} from "./media";
-
-export type {
   Project,
   ProjectCaseStudy,
   ProjectCaseStudyPoint,

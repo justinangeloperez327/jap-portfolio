@@ -16,10 +16,10 @@ export function HomeProjectsPreview() {
     <section
       id="projects-preview"
       aria-labelledby="projects-preview-title"
-      className="relative z-30 -mt-20 pb-10 sm:-mt-24 lg:-mt-28"
+      className="relative border-t border-border/70 bg-background py-16 sm:py-20"
     >
       <div className="site-container">
-        <div className="glass-surface rounded-2xl p-4 sm:p-5 lg:p-6">
+        <div className="w-full">
           <div className="flex flex-col gap-5 border-b border-border/70 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
@@ -50,7 +50,7 @@ export function HomeProjectsPreview() {
             </Link>
           </div>
 
-          <div className="mt-5 grid gap-4 lg:grid-cols-3">
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {featuredProjects.slice(0, 3).map((project, index) => (
               <HomeProjectCard
                 key={project.slug}

@@ -1,5 +1,3 @@
-import type { ResponsiveFocalPosition } from "./media";
-
 export type ProjectCategory =
   | "Frameworks"
   | "Languages"
@@ -23,9 +21,6 @@ export type Project = {
   description: string;
   category: ProjectCategory;
   technologies: readonly string[];
-  image: string | null;
-  imagePosition: ResponsiveFocalPosition;
-  imageMirror: boolean;
   contentSide: ProjectContentSide;
   status: ProjectStatus;
   github: string | null;

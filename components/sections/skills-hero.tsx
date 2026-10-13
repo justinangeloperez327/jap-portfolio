@@ -1,5 +1,5 @@
 import { PageHero } from "@/components/media";
-import { artwork, portfolioSections } from "@/data";
+import { portfolioSections } from "@/data";
 
 import { SectionLabel } from "./section-label";
 
@@ -14,11 +14,8 @@ export function SkillsHero() {
 
   return (
     <PageHero
-      artwork={artwork.skills}
-      priority
-      overlay="left"
+      sceneLabel="Tokyo night / Skills"
       contentClassName="items-end pb-14 pt-28 sm:pb-18 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
-      parallaxDepth={0.75}
     >
       <div className="max-w-4xl">
         <SectionLabel

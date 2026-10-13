@@ -4,7 +4,6 @@ export {
   aboutPrinciples,
   developmentPhilosophy,
 } from "./about";
-export { artwork } from "./artwork";
 export { brand } from "./brand";
 export {
   contactFocusAreas,
