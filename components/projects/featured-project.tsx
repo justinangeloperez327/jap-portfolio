@@ -29,8 +29,8 @@ export function FeaturedProject({
       <div
         data-scroll-depth="0.45"
         className={cn(
-          "relative aspect-[4/3] overflow-hidden rounded-xl border border-border sm:aspect-[16/10]",
-          surface === "subtle" ? "bg-surface-subtle" : "bg-background",
+          "relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md sm:aspect-[16/10]",
+          surface === "subtle" ? "bg-glass" : "bg-glass",
           contentOnRight ? "lg:order-1" : "lg:order-2",
         )}
       >
