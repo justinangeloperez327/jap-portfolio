@@ -44,14 +44,14 @@ export function HomeHero() {
             <Link
               data-home-action
               href="/projects"
-              className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
             >
               View Projects <span aria-hidden="true" className="ml-3">→</span>
             </Link>
             <Link
               data-home-action
               href="/contact"
-              className="inline-flex min-h-11 items-center justify-center border border-border bg-background/40 px-5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background/40 px-5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Contact Me <span aria-hidden="true" className="ml-3">↗</span>
             </Link>
