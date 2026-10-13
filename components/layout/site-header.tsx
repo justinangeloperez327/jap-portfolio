@@ -26,10 +26,10 @@ export function SiteHeader() {
 
             <Link
               href="/contact"
-              className="hidden min-h-10 items-center gap-3 border border-border/80 bg-secondary/50 px-4 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
+              className="hidden min-h-10 items-center gap-3 border border-[#dc2626] bg-[#dc2626] px-4 text-sm font-medium text-white transition-colors hover:border-[#b91c1c] hover:bg-[#b91c1c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
             >
               Let&apos;s Connect
-              <span aria-hidden="true" className="text-primary">
+              <span aria-hidden="true" className="text-white">
                 ↗
               </span>
             </Link>
