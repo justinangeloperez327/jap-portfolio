@@ -177,7 +177,7 @@ export function ProjectCaseStudyView({
 
             <div
               data-scroll-depth="0.4"
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-surface-subtle sm:aspect-[16/10]"
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md sm:aspect-[16/10]"
             >
               <SceneSlot label={`${project.title} / Case study`} className="absolute inset-0" />
 
