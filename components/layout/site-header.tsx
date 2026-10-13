@@ -26,7 +26,7 @@ export function SiteHeader() {
 
             <Link
               href="/contact"
-              className="hidden min-h-10 items-center gap-3 border border-primary bg-primary px-4 text-sm font-medium text-white transition-colors hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
+              className="hidden min-h-10 items-center gap-3 rounded-lg border border-primary bg-primary px-4 text-sm font-medium text-white transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
             >
               Let&apos;s Connect
               <span aria-hidden="true" className="text-white">
