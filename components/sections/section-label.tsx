@@ -18,7 +18,7 @@ export function SectionLabel({
         className,
       )}
     >
-      <span className="font-mono text-[#ef4444]">{number}</span>
+      <span className="font-mono text-primary">{number}</span>
       <span aria-hidden="true" className="h-px w-7 bg-border" />
       <span>{label}</span>
     </div>
