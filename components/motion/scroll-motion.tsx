@@ -47,9 +47,11 @@ export function ScrollMotion({
     let scrollListening = false;
 
     const queueDepthUpdate = () => {
-      cancelAnimationFrame(animationFrame);
-      animationFrame =
-        requestAnimationFrame(updateDepth);
+      if (animationFrame !== 0) return;
+      animationFrame = requestAnimationFrame(() => {
+        animationFrame = 0;
+        updateDepth();
+      });
     };
 
     const syncScrollListener = () => {
