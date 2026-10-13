@@ -54,7 +54,7 @@ export function HomeContactPreview() {
 
           <Link
             href={contactSection.href}
-            className="group inline-flex min-h-12 w-fit items-center gap-4 border border-[#dc2626] bg-[#dc2626] px-5 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#b91c1c] hover:bg-[#b91c1c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:mb-1"
+            className="group inline-flex min-h-12 w-fit items-center gap-4 border border-primary bg-primary px-5 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:mb-1"
           >
             Contact Me
             <span
