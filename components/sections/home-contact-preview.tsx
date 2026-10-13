@@ -33,7 +33,7 @@ export function HomeContactPreview() {
           label={contactSection.label}
         />
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-20">
+        <div className="mt-8 grid gap-8 sm:mt-12 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-20">
           <div className="max-w-4xl">
             <h2
               id="contact-preview-title"
@@ -54,12 +54,12 @@ export function HomeContactPreview() {
 
           <Link
             href={contactSection.href}
-            className="group inline-flex min-h-12 w-fit items-center gap-4 border border-primary bg-primary px-5 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:mb-1"
+            className="group inline-flex min-h-12 w-fit items-center gap-4 border border-primary bg-primary px-5 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 motion-reduce:transition-none motion-reduce:transform-none hover:-translate-y-0.5 hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:mb-1"
           >
             Contact Me
             <span
               aria-hidden="true"
-              className="text-white transition-transform duration-200 group-hover:translate-x-1"
+              className="text-white transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none group-hover:translate-x-1"
             >
               →
             </span>
