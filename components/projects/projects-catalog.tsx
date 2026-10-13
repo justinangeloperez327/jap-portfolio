@@ -226,7 +226,7 @@ export function ProjectsCatalog() {
                 </div>
 
                 <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                  Four projects that best represent my framework, language,
+                  {featuredProjects.length} projects that best represent my framework, language,
                   and developer-experience work.
                 </p>
               </div>
