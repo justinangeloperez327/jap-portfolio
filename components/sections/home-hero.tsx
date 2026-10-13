@@ -44,7 +44,7 @@ export function HomeHero() {
             <Link
               data-home-action
               href="/projects"
-              className="inline-flex min-h-11 items-center justify-center border border-[#dc2626] bg-[#dc2626] px-5 text-sm font-medium text-white transition-colors hover:bg-[#b91c1c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               View Projects <span aria-hidden="true" className="ml-3">→</span>
             </Link>
