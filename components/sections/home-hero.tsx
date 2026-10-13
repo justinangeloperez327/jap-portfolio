@@ -25,7 +25,7 @@ export function HomeHero() {
 
           <h1
             data-home-title
-            className="mt-8 text-balance text-[clamp(3.15rem,7.1vw,7rem)] font-semibold leading-[0.94] tracking-[-0.065em]"
+            className="mt-8 break-words text-balance text-[clamp(2.75rem,7.1vw,7rem)] font-semibold leading-[0.94] tracking-[-0.065em]"
           >
             Justin Angelo
             <span className="mt-1 block text-foreground/75">Perez.</span>
@@ -44,7 +44,7 @@ export function HomeHero() {
             <Link
               data-home-action
               href="/projects"
-              className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:border-red-700 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
             >
               View Projects <span aria-hidden="true" className="ml-3">→</span>
             </Link>
