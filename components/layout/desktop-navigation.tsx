@@ -33,7 +33,7 @@ export function DesktopNavigation() {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "absolute inset-x-3 bottom-0 h-px origin-left bg-[#dc2626] transition-transform duration-200",
+                    "absolute inset-x-3 bottom-0 h-px origin-left bg-primary transition-transform duration-200",
                     active ? "scale-x-100" : "scale-x-0",
                   )}
                 />
