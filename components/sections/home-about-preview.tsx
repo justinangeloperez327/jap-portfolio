@@ -39,7 +39,7 @@ export function HomeAboutPreview() {
           label={aboutSection.label}
         />
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+        <div className="mt-8 grid gap-8 sm:mt-12 sm:gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
           <div>
             <h2
               id="about-preview-title"
@@ -63,7 +63,7 @@ export function HomeAboutPreview() {
               conversation.
             </p>
 
-            <div className="mt-10 grid border-y border-border sm:grid-cols-3">
+            <div className="mt-8 grid border-y border-border sm:mt-10 sm:grid-cols-3">
               {focusAreas.map((area, index) => (
                 <div
                   key={area}
@@ -88,7 +88,7 @@ export function HomeAboutPreview() {
               More About Me
               <span
                 aria-hidden="true"
-                className="text-primary transition-transform duration-200 group-hover:translate-x-1"
+                className="text-primary transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none group-hover:translate-x-1"
               >
                 →
               </span>
