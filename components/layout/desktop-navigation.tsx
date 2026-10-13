@@ -22,7 +22,7 @@ export function DesktopNavigation() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-lg px-3 py-2 text-[0.8125rem] transition-colors duration-200",
+                  "relative px-3 py-2 text-[0.8125rem] transition-colors duration-200",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                   active
                     ? "text-foreground"
@@ -33,7 +33,7 @@ export function DesktopNavigation() {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "absolute inset-x-3 bottom-0 h-px origin-left bg-primary shadow-[0_0_10px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition-transform duration-200",
+                    "absolute inset-x-3 bottom-0 h-px origin-left bg-[#dc2626] transition-transform duration-200",
                     active ? "scale-x-100" : "scale-x-0",
                   )}
                 />
