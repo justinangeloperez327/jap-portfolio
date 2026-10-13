@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
 import { siteNav } from "@/data";
@@ -19,6 +20,13 @@ const focusableSelector =
 export function MobileNavigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -126,14 +134,14 @@ export function MobileNavigation() {
         </span>
       </button>
 
-      <div
+      {mounted && createPortal(<div
         ref={dialogRef}
         id="mobile-navigation"
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
         className={cn(
-          "fixed inset-0 z-[65] overflow-y-auto bg-background/96 backdrop-blur-xl transition-[opacity,visibility] duration-200",
+          "fixed inset-0 z-[100] overflow-y-auto bg-background/96 backdrop-blur-xl transition-[opacity,visibility] duration-200",
           open
             ? "visible opacity-100"
             : "invisible pointer-events-none opacity-0",
@@ -209,7 +217,7 @@ export function MobileNavigation() {
             })}
           </ul>
         </nav>
-      </div>
+      </div>, document.body)}
     </div>
   );
 }
