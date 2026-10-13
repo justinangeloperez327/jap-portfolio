@@ -13,7 +13,7 @@ export function HomeHero() {
   return (
     <HomeHeroMotion>
       <PageHero sceneLabel="Tokyo after dark / Home">
-        <div className="max-w-[43rem]">
+        <div className="max-w-[48rem]">
           <div data-home-eyebrow className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
               Software Engineer
@@ -25,7 +25,7 @@ export function HomeHero() {
 
           <h1
             data-home-title
-            className="mt-8 text-balance text-[clamp(3.15rem,7.1vw,6.3rem)] font-semibold leading-[0.96] tracking-[-0.06em]"
+            className="mt-8 text-balance text-[clamp(3.15rem,7.1vw,7rem)] font-semibold leading-[0.94] tracking-[-0.065em]"
           >
             Justin Angelo
             <span className="mt-1 block text-foreground/75">Perez.</span>
@@ -33,7 +33,7 @@ export function HomeHero() {
 
           <p
             data-home-copy
-            className="mt-7 max-w-[37rem] text-[clamp(1rem,1.45vw,1.125rem)] leading-8 text-muted-foreground"
+            className="mt-7 max-w-[35rem] text-[clamp(1rem,1.45vw,1.125rem)] leading-8 text-muted-foreground"
           >
             I build modern web applications, expressive frameworks, and developer
             tools with clean architecture, performance, and developer experience
@@ -44,7 +44,7 @@ export function HomeHero() {
             <Link
               data-home-action
               href="/projects"
-              className="inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex min-h-11 items-center justify-center border border-[#dc2626] bg-[#dc2626] px-5 text-sm font-medium text-white transition-colors hover:bg-[#b91c1c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               View Projects <span aria-hidden="true" className="ml-3">→</span>
             </Link>
