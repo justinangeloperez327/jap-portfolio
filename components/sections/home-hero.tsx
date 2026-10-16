@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { PageHero } from "@/components/media";
+import { FeaturedSignal } from "@/components/media/project-signal";
+import { projects } from "@/data/projects";
 import { HomeHeroMotion } from "@/components/motion";
 
 const focusAreas = [
@@ -12,7 +14,7 @@ const focusAreas = [
 export function HomeHero() {
   return (
     <HomeHeroMotion>
-      <PageHero sceneLabel="Tokyo after dark / Home">
+      <PageHero sceneLabel="Tokyo after dark / Home" companion={<FeaturedSignal project={projects.find(project => project.slug === "gungnir")!} />}>
         <div className="max-w-[48rem]">
           <div data-home-eyebrow className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
@@ -25,26 +27,25 @@ export function HomeHero() {
 
           <h1
             data-home-title
-            className="mt-8 break-words text-balance text-[clamp(2.75rem,7.1vw,7rem)] font-semibold leading-[0.94] tracking-[-0.065em]"
+            className="hero-title mt-8"
           >
             Justin Angelo
-            <span className="mt-1 block text-foreground/75">Perez.</span>
+            <span className="mt-1 block text-primary">Perez.</span>
           </h1>
 
           <p
             data-home-copy
             className="mt-7 max-w-[35rem] text-[clamp(1rem,1.45vw,1.125rem)] leading-8 text-muted-foreground"
           >
-            I build modern web applications, expressive frameworks, and developer
-            tools with clean architecture, performance, and developer experience
-            at their core.
+            I build web applications, frameworks, and tools that make complex
+            systems easier to use—and easier to build on.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               data-home-action
               href="/projects"
-              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-primary bg-primary px-5 text-sm font-medium text-white transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-primary bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
             >
               View Projects <span aria-hidden="true" className="ml-3">→</span>
             </Link>
@@ -64,7 +65,7 @@ export function HomeHero() {
             {focusAreas.map((area) => (
               <span
                 key={area}
-                className="font-mono text-[0.625rem] uppercase tracking-[0.08em] text-muted-foreground/70"
+                className="font-mono text-[0.625rem] uppercase tracking-[0.08em] text-muted-foreground"
               >
                 {area}
               </span>

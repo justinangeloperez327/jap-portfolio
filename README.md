@@ -4,9 +4,9 @@ Personal software engineering portfolio built with Next.js, TypeScript, Tailwind
 
 ## Direction
 
-An editorial Tokyo-after-dark atmosphere without visual clutter. Deep midnight surfaces, sparse cyan/violet lighting, large typography, minimal borders, calm transitions, and high contrast. The goal is to evoke an anime-inspired Tokyo street once original artwork is supplied—not to simulate a dense cyberpunk scene through CSS.
+An editorial Tokyo-after-dark atmosphere without visual clutter. Ink-blue surfaces, restrained #FF3B5C accents, sign-like display typography, calm transitions, and high contrast. The goal is to evoke an anime-inspired Tokyo street once original artwork is supplied—not to simulate a dense cyberpunk scene through CSS.
 
-**The site is deliberately image-free.** There are no raster/vector scene assets, remote image sources, generated social preview images, decorative particles, or mock train/building artwork. The home and section heroes and selected project views have labelled empty composition slots. Home project cards are text-first.
+**The site is deliberately image-free.** There are no raster/vector scene assets, remote image sources, generated social preview images, decorative particles, or mock train/building artwork. Heroes use useful companion content, and project views use typographic covers generated from real project metadata. Home project cards are text-first.
 
 ## Run
 
@@ -37,4 +37,4 @@ Project content is centralized in `data/projects.ts` without media properties.
 
 The intended independent layers are a distant Tokyo city backdrop, a restrained street-level midground, foreground road/street furniture, a character, and an optional independently animated train/rail sequence. No train in the static city/road layers. No particles or overcrowded repeated objects. See `docs/visual-direction.md`.
 
-The portfolio is usable and responsive with every visual slot empty.
+The portfolio works without artwork. See `docs/design-system.md` for the current tokens and composition rules.

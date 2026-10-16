@@ -4,7 +4,7 @@ Animation supports hierarchy, not decoration.
 
 ## Home
 
-`components/motion/home-hero-motion.tsx` scopes an Anime.js entrance to role text, name, introduction, CTAs, focus labels, and the empty reserved scene frame. No image layers move or load. No perpetual animations.
+`components/motion/home-hero-motion.tsx` scopes an Anime.js entrance to role text, name, introduction, CTAs, focus labels. No image layers move or load. No perpetual animations.
 
 ## Other pages
 

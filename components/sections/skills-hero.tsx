@@ -1,42 +1,16 @@
 import { PageHero } from "@/components/media";
-import { portfolioSections } from "@/data";
-
+import { skillArchitecture } from "@/data";
 import { SectionLabel } from "./section-label";
 
-const skillsSection = portfolioSections.find(
-  (section) => section.id === "skills",
-);
-
 export function SkillsHero() {
-  if (!skillsSection) {
-    return null;
-  }
-
-  return (
-    <PageHero
-      sceneLabel="Tokyo night / Skills"
-      contentClassName="items-end pb-14 pt-28 sm:pb-20 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
-    >
-      <div className="max-w-4xl">
-        <SectionLabel
-          number={skillsSection.number}
-          label={skillsSection.label}
-        />
-
-        <h1 className="mt-7 max-w-4xl break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold uppercase sm:mt-8">
-          Tools, tech
-          <span className="block text-muted-foreground">
-            and more.
-          </span>
-        </h1>
-
-        <p className="mt-7 max-w-2xl text-body-lg text-muted-foreground">
-          I use technology as a set of engineering choices, not a collection of
-          badges. The important part is understanding where each tool fits,
-          what trade-offs it introduces, and how it contributes to the system
-          around it.
-        </p>
-      </div>
-    </PageHero>
-  );
+  return <PageHero sceneLabel="Tokyo night / Skills" companion={
+    <nav aria-label="Explore skill categories" className="rounded-xl border border-border bg-card p-6 sm:p-8">
+      <p className="mb-5 font-mono text-xs text-primary">Explore the toolkit</p>
+      {skillArchitecture.map(category => <a key={category.id} href={`#skills-${category.id}`} className="group flex min-h-14 items-center justify-between gap-4 border-t border-border py-3 text-sm transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary"><span>{category.label}</span><span aria-hidden="true" className="text-primary">↓</span></a>)}
+    </nav>
+  }>
+    <SectionLabel number="02" label="Skills" />
+    <h1 className="hero-title mt-7">Across the stack.<br /><span className="text-primary">Down to the details.</span></h1>
+    <p className="mt-7 max-w-xl text-body-lg text-muted-foreground">From a React interface to a Rust runtime. These are the tools I use, where they fit, and how I put them to work.</p>
+  </PageHero>;
 }

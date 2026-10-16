@@ -45,7 +45,7 @@ export function AboutExperience() {
                     <h3 className="text-heading font-medium text-foreground">
                       {stage.phase}
                     </h3>
-                    <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/55">
+                    <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
                       {stage.focus}
                     </p>
                   </div>
@@ -97,7 +97,7 @@ export function AboutExperience() {
                     key={theme.title}
                     className="grid gap-4 border-b border-border py-6 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
                   >
-                    <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
+                    <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>

@@ -45,7 +45,7 @@ export function SkillsIntroduction() {
               data-skills-principle
               className="grid gap-4 border-b border-border py-6 transition-colors duration-200 motion-reduce:transition-none hover:bg-surface-subtle/55 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
             >
-              <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+              <span className="font-mono text-[0.625rem] text-muted-foreground">
                 {String(index + 1).padStart(2, "0")}
               </span>
 

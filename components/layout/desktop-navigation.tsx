@@ -22,7 +22,7 @@ export function DesktopNavigation() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative px-3 py-2 text-[0.8125rem] transition-colors duration-200",
+                  "relative inline-flex min-h-11 items-center rounded-md px-3 py-2 text-[0.8125rem] transition-colors duration-200",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                   active
                     ? "text-foreground"

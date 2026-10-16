@@ -109,7 +109,7 @@ export function AboutContent() {
                 key={principle.title}
                 className="grid gap-4 border-b border-border py-7 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-6"
               >
-                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
+                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -150,7 +150,7 @@ export function AboutContent() {
                 key={area.title}
                 className="border-b border-border py-7 md:min-h-44 md:px-8 md:odd:border-r md:odd:pl-0 md:even:pr-0"
               >
-                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/45">
+                <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 text-heading font-medium">
@@ -201,7 +201,7 @@ export function AboutContent() {
               {aboutInterests.map((interest) => (
                 <li
                   key={interest}
-                  className="font-mono text-[0.6875rem] text-foreground/60"
+                  className="font-mono text-[0.6875rem] text-muted-foreground"
                 >
                   {interest}
                 </li>

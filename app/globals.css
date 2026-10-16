@@ -10,22 +10,22 @@
   --radius: 0.75rem;
 
   /* Core palette */
-  --background: oklch(0.105 0.018 262);
-  --foreground: oklch(0.965 0.006 255);
-  --card: oklch(0.145 0.022 262 / 78%);
+  --background: #0B111C;
+  --foreground: #F1F4F7;
+  --card: #131E2D;
   --card-foreground: oklch(0.965 0.006 255);
   --popover: oklch(0.135 0.022 262 / 96%);
   --popover-foreground: oklch(0.965 0.006 255);
   --primary: #FF3B5C;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #160A10;
   --secondary: oklch(0.19 0.026 262);
   --secondary-foreground: oklch(0.93 0.008 255);
   --muted: oklch(0.18 0.02 262);
-  --muted-foreground: oklch(0.68 0.018 255);
+  --muted-foreground: #A6B5C8;
   --accent: #FF3B5C;
-  --accent-foreground: #ffffff;
+  --accent-foreground: #160A10;
   --destructive: oklch(0.64 0.22 25);
-  --border: oklch(0.96 0.006 255 / 11%);
+  --border: #2C3A4D;
   --input: oklch(0.96 0.006 255 / 14%);
   --ring: rgb(255 59 92 / 65%);
 
@@ -55,7 +55,7 @@
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --page-gutter: clamp(1.25rem, 3vw, 3.5rem);
-  --section-space: clamp(5rem, 9vw, 9rem);
+  --section-space: clamp(4rem, 7vw, 7rem);
   --hero-min-height: 100svh;
 
   /* Layering */
@@ -102,6 +102,7 @@
   --color-glass-border: var(--glass-border);
   --color-hairline: var(--hairline);
 
+  --font-display: "Bahnschrift", "DIN Alternate", "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
   --font-sans:
     "Segoe UI Variable", "SF Pro Display", "SF Pro Text", "Inter",
     ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -112,11 +113,11 @@
   --text-hero: clamp(3.25rem, 8vw, 7.5rem);
   --text-hero--line-height: 0.92;
   --text-hero--letter-spacing: -0.055em;
-  --text-display: clamp(2.5rem, 5.5vw, 5rem);
-  --text-display--line-height: 0.98;
+  --text-display: clamp(2rem, 4vw, 3.75rem);
+  --text-display--line-height: 1.08;
   --text-display--letter-spacing: -0.045em;
   --text-heading: clamp(1.75rem, 3vw, 2.75rem);
-  --text-heading--line-height: 1.05;
+  --text-heading--line-height: 1.15;
   --text-heading--letter-spacing: -0.03em;
   --text-body-lg: clamp(1.0625rem, 1.4vw, 1.25rem);
   --text-body-lg--line-height: 1.65;
@@ -124,7 +125,7 @@
   --text-body--line-height: 1.7;
   --text-label: 0.75rem;
   --text-label--line-height: 1rem;
-  --text-label--letter-spacing: 0.22em;
+  --text-label--letter-spacing: 0.08em;
 
   --radius-sm: calc(var(--radius) - 0.25rem);
   --radius-md: calc(var(--radius) - 0.125rem);
@@ -159,6 +160,19 @@
     color: var(--foreground);
   }
 
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
   a,
   button {
     -webkit-tap-highlight-color: transparent;
@@ -172,6 +186,39 @@
 }
 
 @layer utilities {
+  .hero-title {
+    max-width: 15ch;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 5.4vw, 5.75rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+  }
+
+  .text-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 0.4em;
+    transition: color 180ms, text-decoration-color 180ms;
+  }
+
+  .text-link:hover { color: var(--primary); text-decoration-color: currentColor; }
+
+  .project-signal {
+    background: linear-gradient(135deg, #1B2D43, #111C2B 65%);
+    box-shadow: inset 3px 0 0 var(--primary);
+  }
+
+  .signal-glyph { font-family: var(--font-mono); font-size: 2rem; line-height: 1; }
+
   .site-container {
     width: min(100% - (var(--page-gutter) * 2), var(--content-max));
     margin-inline: auto;

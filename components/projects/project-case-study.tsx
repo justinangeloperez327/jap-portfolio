@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-import { SceneSlot } from "@/components/media";
+import { ProjectSignal } from "@/components/media/project-signal";
 import { cn } from "@/lib/utils";
 import type {
   Project,
@@ -143,7 +143,7 @@ export function ProjectCaseStudyView({
                   aria-hidden="true"
                   className="size-1 bg-muted-foreground/35"
                 />
-                <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/55">
+                <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
                   {project.category} · {project.status}
                 </p>
               </div>
@@ -152,7 +152,7 @@ export function ProjectCaseStudyView({
                 {project.title}
               </h1>
 
-              <p className="mt-5 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-muted-foreground/70">
+              <p className="mt-5 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-muted-foreground">
                 {project.subtitle}
               </p>
 
@@ -167,7 +167,7 @@ export function ProjectCaseStudyView({
                 {project.technologies.map((technology) => (
                   <li
                     key={technology}
-                    className="font-mono text-[0.6875rem] text-foreground/55"
+                    className="font-mono text-[0.6875rem] text-muted-foreground"
                   >
                     {technology}
                   </li>
@@ -177,18 +177,9 @@ export function ProjectCaseStudyView({
 
             <div
               data-scroll-depth="0.4"
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md sm:aspect-[16/10]"
+              className="relative overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md"
             >
-              <SceneSlot label={`${project.title} / Case study`} className="absolute inset-0" />
-
-              <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between p-4">
-                <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground/50">
-                  {project.slug}
-                </span>
-                <span className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/45">
-                  {project.status}
-                </span>
-              </div>
+              <ProjectSignal project={project} className="border-0" />
             </div>
           </div>
         </div>
@@ -279,7 +270,7 @@ export function ProjectCaseStudyView({
               key={technology}
               className="border-b border-border py-5 sm:min-h-28 sm:px-6 sm:odd:border-r sm:odd:pl-0 sm:even:pr-0"
             >
-              <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground/60">
+              <span aria-hidden="true" className="font-mono text-[0.625rem] text-muted-foreground">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="mt-3 font-mono text-sm text-foreground/80">
@@ -315,7 +306,7 @@ export function ProjectCaseStudyView({
       >
         <div className="border-t border-border">
           <div className="grid gap-3 border-b border-border py-5 sm:grid-cols-[10rem_minmax(0,1fr)]">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground/55">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground">
               Status
             </p>
             <p className="text-sm text-foreground/80">
@@ -324,7 +315,7 @@ export function ProjectCaseStudyView({
           </div>
 
           <div className="grid gap-3 border-b border-border py-5 sm:grid-cols-[10rem_minmax(0,1fr)]">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground/55">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground">
               GitHub
             </p>
             {project.github ? (
@@ -344,7 +335,7 @@ export function ProjectCaseStudyView({
           </div>
 
           <div className="grid gap-3 border-b border-border py-5 sm:grid-cols-[10rem_minmax(0,1fr)]">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground/55">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground">
               Website
             </p>
             {project.website ? (

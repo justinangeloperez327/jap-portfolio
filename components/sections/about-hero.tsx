@@ -1,41 +1,20 @@
+import Link from "next/link";
 import { PageHero } from "@/components/media";
-import { portfolioSections } from "@/data";
-
 import { SectionLabel } from "./section-label";
 
-const aboutSection = portfolioSections.find(
-  (section) => section.id === "about",
-);
-
 export function AboutHero() {
-  if (!aboutSection) {
-    return null;
-  }
-
-  return (
-    <PageHero
-      sceneLabel="Tokyo night / About"
-      contentClassName="items-end pb-14 pt-28 sm:pb-20 sm:pt-32 lg:items-center lg:pb-24 lg:pt-28"
-    >
-      <div className="max-w-3xl">
-        <SectionLabel
-          number={aboutSection.number}
-          label={aboutSection.label}
-        />
-
-        <h1 className="mt-7 max-w-3xl break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold uppercase sm:mt-8">
-          More than
-          <span className="block text-muted-foreground">
-            just code.
-          </span>
-        </h1>
-
-        <p className="mt-7 max-w-2xl text-body-lg text-muted-foreground">
-          I approach software as a system of decisions: architecture, naming,
-          developer experience, performance, and the people who eventually
-          need to use or maintain what gets built.
-        </p>
-      </div>
-    </PageHero>
-  );
+  return <PageHero sceneLabel="Tokyo night / About" companion={
+    <aside className="rounded-xl border border-border bg-card p-6 sm:p-8">
+      <p className="font-mono text-xs text-primary">The way I work</p>
+      <p className="mt-6 font-display text-3xl font-semibold leading-tight">Make the complexity useful.</p>
+      <dl className="mt-8 divide-y divide-border">
+        {[["Architecture", "Clear boundaries. Room to evolve."], ["Experience", "Conventions people can understand."], ["Performance", "Decisions grounded in the workload."]].map(([label, value]) => <div key={label} className="py-4"><dt className="text-sm font-medium">{label}</dt><dd className="mt-1 text-sm leading-6 text-muted-foreground">{value}</dd></div>)}
+      </dl>
+    </aside>
+  }>
+    <SectionLabel number="01" label="About me" />
+    <h1 className="hero-title mt-7">Curious about<br /><span className="text-primary">what’s underneath.</span></h1>
+    <p className="mt-7 max-w-xl text-body-lg text-muted-foreground">I’m Justin Angelo Perez. I build applications—and explore the frameworks, languages, and tools that make them possible.</p>
+    <Link href="/projects" className="text-link mt-8">See what I build <span aria-hidden="true">↗</span></Link>
+  </PageHero>;
 }

@@ -1,34 +1,39 @@
 # JAP Portfolio Design System
 
-## Visual direction
+## Direction
 
-Dark-first, text-first, Tokyo-after-dark editorial design. The current site is image-free. No decorative particles, CSS-built streets, excessive neon, oversized rounded cards, or ornamental clutter.
+Tokyo after dark, expressed through quiet ink-blue surfaces, compact sign-like typography, and one signal-red accent. The portfolio introduces Justin, makes work easy to explore, and gives visitors a clear path to contact. Artwork remains a separate future pass; no placeholder frames, stock scenes, or decorative particles are shown.
 
-## Palette
+## Tokens
 
-- Deep navy and graphite surfaces
-- Cyan for functional and interactive emphasis
-- Violet / magenta used rarely for ambient light
-- Muted foreground for metadata and supporting copy
+| Role | Value |
+| --- | --- |
+| Background / ink | `#0B111C` |
+| Card / night blue | `#131E2D` |
+| Text / paper | `#F1F4F7` |
+| Supporting text / steel | `#A6B5C8` |
+| Borders / slate | `#2C3A4D` |
+| Accent / signal red | `#FF3B5C` |
 
-## Type
+Red buttons use dark ink text for contrast. Focus indicators use signal red with an offset. Small supporting text uses the full supporting-text token rather than an extra opacity reduction.
 
-Large editorial headings, readable text, and tracked monospaced micro-labels. System font stacks avoid external requests and layout shifts.
+## Typography and layout
 
-## Surfaces
+Display: Bahnschrift, DIN Alternate, Arial Narrow, system fallback. Body: Segoe UI Variable and system sans. Utility: Cascadia Code and monospace fallbacks. All fonts resolve locally, with no font network requests.
 
-Use thin borders and mostly flat surfaces. Base radius is `0.375rem`. Reuse `surface-subtle`, `surface-raised`, and `surface-strong` tokens. Glass effects are exceptional, not the default.
+Use a 4–96px spacing scale, 80rem content width, responsive gutters, and 12px base corners. Hero headings scale from 44px to 92px. Inner-page heroes fit their content rather than forcing every introduction to fill the viewport. Major headings wrap naturally; navigation anchors account for the fixed header.
 
-## Layout
+## Page composition
 
-- 80rem maximum site content width
-- 44rem reading column
-- Responsive gutters and section spacing via CSS variables
-- `100svh` minimum hero with natural vertical expansion
-- Essential text never baked into media slots
+- Home: identity, clear project/contact actions, and a Gungnir workbench feature.
+- About: personal introduction and three working principles, followed by background and experience.
+- Skills: concise introduction, six direct category links, then detailed context for each tool.
+- Projects: compact introduction, category filters, featured work, and the wider catalog.
+- Contact: direct invitation and labeled form with validation, pending, success, and error feedback.
+- Case studies: readable project summary, real metadata cover, and structured engineering narrative.
 
-## Motion
+`ProjectSignal` is a typographic cover derived from project metadata. It is not an application screenshot or a representation of a running product. Reuse it in project features and case studies.
 
-Anime.js supports a short Home entrance; skills and scroll reveals are one-shot. Motion must respect `prefers-reduced-motion`.
+## Interaction
 
-Original multi-layer art will be a future separate implementation. See `docs/visual-direction.md`.
+Controls target at least 44px. Navigation exposes current-page state. Mobile navigation uses a portal, keyboard focus containment, Escape dismissal, and scroll locking. Keyboard focus remains visible. Reduced motion is respected. Prefer short transitions and no persistent decorative animation.

@@ -23,7 +23,7 @@ export function ContactPage() {
   return (
     <PageHero
       className="min-h-screen"
-      contentClassName="items-start pb-14 pt-28 sm:pb-20 sm:pt-32 xl:items-center xl:py-28"
+      contentClassName=""
     >
       <div className="grid w-full min-w-0 gap-8 sm:gap-12 xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,0.85fr)] xl:gap-20 2xl:gap-24">
         <div className="max-w-2xl">
@@ -32,17 +32,16 @@ export function ContactPage() {
             label={contactSection.label}
           />
 
-          <h1 className="mt-8 max-w-3xl break-words text-balance text-[clamp(2.75rem,7vw,7.5rem)] leading-[0.95] tracking-[-0.055em] font-semibold">
-            Have something worth building?
-            <span className="block text-muted-foreground">
+          <h1 className="hero-title mt-8">
+            Have an idea?
+            <span className="block text-primary">
               Let&apos;s talk.
             </span>
           </h1>
 
           <p className="mt-7 max-w-xl text-body-lg text-muted-foreground">
-            I am interested in software work where architecture, developer
-            experience, maintainability, and the actual product workflow all
-            matter.
+            Tell me what you’re building, what needs to improve, or where
+            you’re stuck. A little context is a good place to start.
           </p>
 
           <div className="mt-10 border-y border-border/80 bg-background/20 px-5 py-6 backdrop-blur-sm">
@@ -56,7 +55,7 @@ export function ContactPage() {
                   key={area}
                   className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3 text-sm leading-6 text-foreground/75"
                 >
-                  <span className="font-mono text-[0.625rem] text-muted-foreground/40">
+                  <span className="font-mono text-[0.625rem] text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>{area}</span>
@@ -71,7 +70,7 @@ export function ContactPage() {
                 key={note.label}
                 className="border-l border-border pl-4"
               >
-                <dt className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/50">
+                <dt className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
                   {note.label}
                 </dt>
                 <dd className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -82,7 +81,7 @@ export function ContactPage() {
           </dl>
 
           <div className="mt-8 border-t border-border/70 pt-5">
-            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/45">
+            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
               Elsewhere
             </p>
             <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
@@ -107,7 +106,7 @@ export function ContactPage() {
                   <span
                     key={link.label}
                     aria-disabled="true"
-                    className="text-sm text-muted-foreground/65"
+                    className="text-sm text-muted-foreground"
                   >
                     {link.label}
                   </span>

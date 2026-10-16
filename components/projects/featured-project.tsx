@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { SceneSlot } from "@/components/media";
+import { ProjectSignal } from "@/components/media/project-signal";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types";
 
@@ -14,7 +14,6 @@ type FeaturedProjectProps = {
 
 export function FeaturedProject({
   project,
-  index,
   surface = "default",
   showCatalogMeta = false,
   showProjectLink = false,
@@ -29,21 +28,12 @@ export function FeaturedProject({
       <div
         data-scroll-depth="0.45"
         className={cn(
-          "relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md sm:aspect-[16/10]",
+          "relative overflow-hidden rounded-xl border border-glass-border bg-glass shadow-lg shadow-black/10 backdrop-blur-md",
           surface === "subtle" ? "bg-glass" : "bg-card/70",
           contentOnRight ? "lg:order-1" : "lg:order-2",
         )}
       >
-        <SceneSlot label={`${project.title} / Visual reserved`} className="absolute inset-0" />
-
-        <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between p-4">
-          <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground/55">
-            Project {String(index + 1).padStart(2, "0")}
-          </span>
-          <span className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/45">
-            {project.status}
-          </span>
-        </div>
+        <ProjectSignal project={project} className="border-0" />
       </div>
 
       <div
@@ -65,7 +55,7 @@ export function FeaturedProject({
                 aria-hidden="true"
                 className="size-1 bg-muted-foreground/35"
               />
-              <p className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground/50">
+              <p className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
                 {project.category}
               </p>
             </>
@@ -92,7 +82,7 @@ export function FeaturedProject({
           {project.technologies.map((technology) => (
             <li
               key={technology}
-              className="font-mono text-[0.6875rem] text-foreground/55"
+              className="font-mono text-[0.6875rem] text-muted-foreground"
             >
               {technology}
             </li>

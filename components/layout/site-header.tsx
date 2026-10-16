@@ -12,7 +12,7 @@ export function SiteHeader() {
       className="layer-navigation pointer-events-none fixed inset-x-0 top-0 pt-[env(safe-area-inset-top)]"
     >
       <div className="site-container pt-3">
-        <div className="pointer-events-auto flex min-h-[3.75rem] items-center justify-between border-b border-border/70 bg-background/90 px-3 backdrop-blur-lg sm:px-4">
+        <div className="pointer-events-auto flex min-h-[3.75rem] items-center justify-between rounded-xl border border-border bg-background/95 px-3 backdrop-blur-lg sm:px-4">
           <Link
             href="/"
             aria-label="JAP Portfolio home"
@@ -26,10 +26,10 @@ export function SiteHeader() {
 
             <Link
               href="/contact"
-              className="hidden min-h-10 items-center gap-3 rounded-lg border border-primary bg-primary px-4 text-sm font-medium text-white transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
+              className="hidden min-h-11 items-center gap-3 rounded-lg border border-primary bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:border-[#E62E50] hover:bg-[#E62E50] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline-flex"
             >
               Let&apos;s Connect
-              <span aria-hidden="true" className="text-white">
+              <span aria-hidden="true" className="text-primary-foreground">
                 ↗
               </span>
             </Link>

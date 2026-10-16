@@ -6,7 +6,7 @@ The current site has no image payloads, external image requests, generated raste
 
 - Keep the content width capped; prevent horizontal overflow.
 - Ensure the large Home hero heading is the LCP candidate and is visible without JavaScript.
-- Avoid layout shifts when a reserved scene frame becomes real artwork.
+- Keep typographic covers in normal flow to avoid clipping wrapped text on small screens.
 - Prefer short, one-shot reveals over constant scroll listeners.
 - Defer any train animation and its runtime cost until a final approved asset exists.
 - Respect reduced-motion and accessibility preferences.

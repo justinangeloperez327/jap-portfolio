@@ -25,13 +25,6 @@ export function HomeAboutPreview() {
       aria-labelledby="about-preview-title"
       className="relative isolate overflow-hidden border-t border-border/70 bg-background"
     >
-      <div
-        aria-hidden="true"
-        data-scroll-depth="0.65"
-        className="pointer-events-none absolute -right-10 top-4 select-none font-mono text-[clamp(9rem,22vw,22rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.018]"
-      >
-        01
-      </div>
 
       <div data-scroll-reveal className="site-container section-space relative">
         <SectionLabel
@@ -70,7 +63,7 @@ export function HomeAboutPreview() {
                   className="flex min-h-20 items-center border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:px-5 sm:first:pl-0 sm:last:border-r-0"
                 >
                   <div>
-                    <span className="font-mono text-[0.625rem] text-muted-foreground/50">
+                    <span className="font-mono text-[0.625rem] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <p className="mt-1 text-sm text-foreground/80">

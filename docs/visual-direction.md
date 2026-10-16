@@ -1,30 +1,9 @@
 # Visual Direction — Tokyo After Dark
 
-## Current state
+The current UI is image-free, with typographic project covers and useful content in hero companions. There are no reserved artwork frames. Deep ink-blue surfaces, restrained red accents, and sign-like display typography carry the atmosphere without competing with the work.
 
-This version intentionally has **no images**. Text and empty framed areas define the visual hierarchy. Subtle CSS-only night-time tints are not substitutes for artwork.
+Home, About, Skills, Projects, and Contact have distinct introductions. Project details reuse a metadata cover and consistent reading layout. See `design-system.md` for tokens and component rules.
 
-## Composition when original artwork is approved
+Future original artwork can add a distant skyline, street midground, foreground, and a separate character. Keep compositions spacious, urban density believable, and important text clear. Avoid excess trees, signs, lamp posts, cables, neon flares, petals, and particles. A moving train, if added, must be separate from the static scene and respect reduced motion.
 
-1. Distant Tokyo skyline/building backdrop, with restrained realistic density
-2. Street-level midground with a few carefully placed signs, shops, realistic vehicles and lights
-3. Foreground road, curbs, sidewalks, railings and street furniture
-4. One separate character figure
-5. Optional separate bridge/rail line and independently moving train, never baked into static layers
-
-Each layer should be exportable independently, with transparency where appropriate. Avoid excess trees, buildings, signs, lamp posts, cables, neon flares, petals, particles, and props. Prioritize clear depth, believable scale and negative space.
-
-## Product UI
-
-- Text remains fully readable and navigable with no art.
-- Deep navy, low-luminance surfaces; cyan as a controlled interactive accent; occasional violet highlights.
-- Minimal surface effects, small radii, compact controls, generous composition space.
-- Anime.js for brief purpose-driven entrances only.
-- Mobile composition is independent, not a desktop crop.
-- Provide reduced-motion behavior for all future moving parts, especially a train.
-
-## Current implementation
-
-`components/media/scene-slot.tsx` is an inert empty frame with no network requests. `components/media/page-hero.tsx` positions it beside page copy. Contact does not use one to preserve form width.
-
-Do not introduce arbitrary stock images, CSS mock streets, SVG silhouettes, or procedural particles before final artwork is approved.
+Do not introduce stock scenes or procedural streets as substitutes for approved artwork. Optimize any eventual images and choose mobile crops deliberately.

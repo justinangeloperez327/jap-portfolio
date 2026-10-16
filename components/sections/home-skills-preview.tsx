@@ -67,7 +67,7 @@ export function HomeSkillsPreview() {
                 key={category.label}
                 className="grid gap-4 border-b border-border py-6 md:grid-cols-[2.25rem_minmax(0,0.75fr)_minmax(0,1.25fr)] sm:items-start sm:gap-6"
               >
-                <span className="font-mono text-[0.625rem] text-muted-foreground/45">
+                <span className="font-mono text-[0.625rem] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -87,7 +87,7 @@ export function HomeSkillsPreview() {
                   {category.technologies.map((technology) => (
                     <li
                       key={technology}
-                      className="font-mono text-[0.6875rem] text-foreground/55"
+                      className="font-mono text-[0.6875rem] text-muted-foreground"
                     >
                       {technology}
                     </li>

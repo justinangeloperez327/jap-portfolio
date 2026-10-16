@@ -60,7 +60,7 @@ function ProjectCatalogRow({
       <div>
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between md:gap-8">
           <div>
-            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground/70">
+            <p className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
               {project.category} · {project.status}
             </p>
 
@@ -176,7 +176,7 @@ export function ProjectsCatalog() {
                       "relative min-h-11 shrink-0 snap-start touch-manipulation whitespace-nowrap px-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       active
                         ? "text-primary"
-                        : "text-muted-foreground/70 hover:text-foreground",
+                        : "text-muted-foreground hover:text-foreground",
                     )}
                   >
                     {filter}
@@ -194,7 +194,7 @@ export function ProjectsCatalog() {
 
             <p
               aria-live="polite"
-              className="mt-4 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground/70"
+              className="mt-4 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground"
             >
               {activeFilter === "All"
                 ? `${projects.length} projects`

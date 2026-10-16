@@ -17,7 +17,7 @@ export function HomeProjectCard({ project, index }: HomeProjectCardProps) {
         <p className="font-mono text-[0.625rem] uppercase tracking-[0.14em] text-primary">
           {String(index + 1).padStart(2, "0")} / {project.category}
         </p>
-        <span className="font-mono text-[0.625rem] text-muted-foreground/75">{project.status}</span>
+        <span className="font-mono text-[0.625rem] text-muted-foreground">{project.status}</span>
       </div>
 
       <h3 className="mt-7 text-xl font-semibold tracking-[-0.03em]">
@@ -32,7 +32,7 @@ export function HomeProjectCard({ project, index }: HomeProjectCardProps) {
 
       <ul aria-label={`${project.title} technologies`} className="mt-auto flex flex-wrap gap-x-4 gap-y-2 pt-7">
         {project.technologies.slice(0, 3).map((technology) => (
-          <li key={technology} className="font-mono text-[0.625rem] text-foreground/65">
+          <li key={technology} className="font-mono text-[0.625rem] text-muted-foreground">
             {technology}
           </li>
         ))}

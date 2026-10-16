@@ -42,7 +42,7 @@ export function SiteFooter() {
                 <span
                   key={link.label}
                   aria-disabled="true"
-                  className="text-xs text-muted-foreground/65"
+                  className="text-xs text-muted-foreground"
                 >
                   {link.label}
                 </span>
@@ -67,7 +67,7 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          <p className="mt-4 text-xs text-muted-foreground/60">
+          <p className="mt-4 text-xs text-muted-foreground">
             © {new Date().getFullYear()} {brand.author}.
           </p>
         </div>

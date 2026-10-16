@@ -19,19 +19,13 @@ const focusableSelector =
 
 export function MobileNavigation() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const open = openPath === pathname;
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   const closeAndReturnFocus = useCallback(() => {
-    setOpen(false);
+    setOpenPath(null);
 
     requestAnimationFrame(() => {
       triggerRef.current?.focus();
@@ -101,10 +95,14 @@ export function MobileNavigation() {
       }
     };
 
+    const desktop = window.matchMedia("(min-width: 64rem)");
+    const handleDesktop = () => { if (desktop.matches) setOpenPath(null); };
+    desktop.addEventListener("change", handleDesktop);
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
 
     return () => {
+      desktop.removeEventListener("change", handleDesktop);
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
     };
@@ -118,7 +116,7 @@ export function MobileNavigation() {
         aria-label="Open navigation menu"
         aria-expanded={open}
         aria-controls="mobile-navigation"
-        onClick={() => setOpen(true)}
+        onClick={() => setOpenPath(pathname)}
         tabIndex={open ? -1 : 0}
         className={cn(
           "relative z-[70] grid size-12 place-items-center border border-border bg-background/60",
@@ -134,7 +132,7 @@ export function MobileNavigation() {
         </span>
       </button>
 
-      {mounted && createPortal(<div
+      {open && createPortal(<div
         ref={dialogRef}
         id="mobile-navigation"
         role="dialog"
@@ -172,7 +170,7 @@ export function MobileNavigation() {
           className="site-container flex min-h-[calc(100svh-var(--header-height)-env(safe-area-inset-top))] items-start pb-[max(2rem,env(safe-area-inset-bottom))] pt-8 sm:items-center sm:py-16"
         >
           <ul className="w-full">
-            {siteNav.map((item, index) => {
+            {siteNav.map((item) => {
               const active = isActiveRoute(pathname, item.href);
 
               return (
@@ -185,7 +183,7 @@ export function MobileNavigation() {
                       if (active) {
                         closeAndReturnFocus();
                       } else {
-                        setOpen(false);
+                        setOpenPath(null);
                       }
                     }}
                     className="group flex min-h-16 items-center justify-between gap-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-20 sm:py-6"
@@ -206,10 +204,10 @@ export function MobileNavigation() {
                         "shrink-0 font-mono text-xs tracking-[0.18em]",
                         active
                           ? "text-primary"
-                          : "text-muted-foreground/50",
+                          : "text-muted-foreground",
                       )}
                     >
-                      {String(index).padStart(2, "0")}
+                      {active ? "Current" : "↗"}
                     </span>
                   </Link>
                 </li>

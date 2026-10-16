@@ -25,7 +25,7 @@ const initialSubmitState: SubmitState = {
 };
 
 const fieldClassName =
-  "mt-2 min-h-12 w-full rounded-lg border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground/70 focus:border-primary/70 focus:ring-1 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:text-sm";
+  "mt-2 min-h-12 w-full rounded-lg border border-border bg-background/45 px-4 py-3 text-base text-foreground outline-none backdrop-blur-md transition-colors placeholder:text-muted-foreground focus:border-primary/70 focus:ring-1 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:text-sm";
 
 function FieldError({
   id,
@@ -175,7 +175,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact-name"
-            className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
+            className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground"
           >
             Name
           </label>
@@ -208,7 +208,7 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="contact-email"
-              className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
+              className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground"
             >
               Email
             </label>
@@ -241,7 +241,7 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="contact-subject"
-              className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
+              className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground"
             >
               Subject
             </label>
@@ -275,7 +275,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact-message"
-            className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-foreground/65"
+            className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground"
           >
             Message
           </label>
@@ -302,7 +302,7 @@ export function ContactForm() {
           />
           <p
             id="contact-message-hint"
-            className="mt-2 text-xs leading-5 text-muted-foreground/70"
+            className="mt-2 text-xs leading-5 text-muted-foreground"
           >
             20–3,000 characters.
           </p>
@@ -360,7 +360,7 @@ export function ContactForm() {
             ? "text-destructive"
             : submitState.status === "success"
               ? "text-primary"
-              : "text-muted-foreground/70",
+              : "text-muted-foreground",
         )}
       >
         {submitState.message}

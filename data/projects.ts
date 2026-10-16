@@ -118,7 +118,7 @@ export const projects = [
     title: "JAP Portfolio",
     subtitle: "Next.js · Cinematic Portfolio",
     description:
-      "This portfolio itself: a dark, Tokyo-night-inspired editorial experience with image-free composition slots, restrained Anime.js motion, and project storytelling.",
+      "This portfolio itself: a dark, Tokyo-night-inspired editorial experience with typographic project covers, restrained Anime.js motion, and project storytelling.",
     category: "Frontend",
     technologies: ["Next.js", "React", "Tailwind CSS", "Anime.js", "TypeScript"],
     contentSide: "left",
